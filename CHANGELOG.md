@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-10-21
+
+### Changed
+
+- Updated the game catalog for AION 2 client build 31.
+- Updated levels for 61 NPC definitions across 58 enemy selections in the HUD editor.
+- Corrected 28 Russian skill and related effect labels for Summon Resurrection
+  and Command: Proxy to match the current client localization.
+- Added definitions for six new passive effects, preserving their hidden display settings.
+
 ## [0.1.2] - 2026-10-21
 
 ### Changed
