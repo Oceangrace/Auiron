@@ -10,6 +10,7 @@ use std::collections::HashMap;
 pub(crate) struct LiveFrame {
     status: SourceStatus,
     in_world: bool,
+    character_data_complete: bool,
     /// Snapshot time; for a live capture it is Unix time, so the client can subtract frame age.
     at_us: Option<u64>,
     error: Option<String>,
@@ -22,6 +23,7 @@ impl LiveFrame {
         Self {
             status,
             in_world: false,
+            character_data_complete: false,
             at_us: None,
             error,
             visuals: HashMap::new(),
@@ -36,6 +38,7 @@ impl LiveFrame {
     pub(super) fn observe_world(&mut self, game: &GameSnapshot) {
         self.at_us = Some(game.header().at_us());
         self.in_world = game.player_in_world();
+        self.character_data_complete = game.player_data_complete();
     }
 
     pub(crate) fn visuals(&self) -> &HashMap<String, PreviewVisual> {

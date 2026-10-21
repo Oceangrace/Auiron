@@ -1,9 +1,12 @@
+use crate::core::game::CharacterClass;
 use serde::{Deserialize, Serialize};
 use std::num::NonZeroU32;
 
 #[derive(Deserialize, Serialize, schemars::JsonSchema)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub(crate) struct SkillMetadata {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    class_name: Option<CharacterClass>,
     #[serde(default)]
     automatic: bool,
     cooldown_group: Option<NonZeroU32>,
@@ -27,6 +30,10 @@ pub(crate) struct SkillMetadata {
 }
 
 impl SkillMetadata {
+    pub(crate) fn class_name(&self) -> Option<CharacterClass> {
+        self.class_name
+    }
+
     pub(crate) fn automatic(&self) -> bool {
         self.automatic
     }

@@ -13,10 +13,13 @@ import UiSlider from '../components/ui/ui-slider.vue';
 import UiButton from '../components/ui/ui-button.vue';
 import UiSelect from '../components/ui/ui-select.vue';
 import UiSwitch from '../components/ui/ui-switch.vue';
+import type { ReleaseMonitor } from './release-monitor';
+import ReleaseSettings from './release-settings.vue';
 const props = defineProps<{
   shell: ShellController;
   hudEnabled: boolean;
   journalEnabled: boolean;
+  releases: ReleaseMonitor;
 }>();
 
 const emit = defineEmits<{ reset: []; hud: []; journal: [] }>();
@@ -171,6 +174,10 @@ const layouts = computed(() => [
       >
     </section>
     <ClassColorsSettings :shell="shell" />
+    <section class="settings-section">
+      <h3>{{ t('shell.updates.title') }}</h3>
+      <ReleaseSettings :releases="releases" />
+    </section>
   </section>
 </template>
 <style scoped>

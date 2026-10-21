@@ -22,6 +22,9 @@ import WelcomeScreen from './shell/welcome-screen.vue';
 import { StartupWelcome } from './shell/startup-welcome';
 import { WelcomeStage } from './shell/welcome-stage';
 import TrayNotice from './shell/tray-notice.vue';
+import UiIconButton from './components/ui/ui-icon-button.vue';
+import { ReleaseMonitor } from './shell/release-monitor';
+import ReleaseNotice from './shell/release-notice.vue';
 const interfaces = inject(interfacesContextKey);
 
 if (interfaces === undefined) {
@@ -67,6 +70,10 @@ const liveError = interfaces.live.getError();
 const { t, locale } = useI18n();
 
 const desktop = new TauriClient<InterfaceEvents>(() => locale.value);
+
+const releases = new ReleaseMonitor(desktop);
+
+const releaseState = releases.getState();
 
 const openEditor = (): void => {
   welcome.dismiss();
@@ -163,6 +170,7 @@ const quit = async (): Promise<void> => {
 };
 
 onMounted(() => {
+  releases.start();
   void desktop
     .listen('app:quit-requested', () => {
       void quit();
@@ -186,6 +194,7 @@ onMounted(() => {
   window.addEventListener('resize', applyAppearance);
 });
 onBeforeUnmount(() => {
+  releases.dispose();
   surface?.dispose();
   quitSubscription?.();
   window.removeEventListener('keydown', key);
@@ -224,12 +233,23 @@ onBeforeUnmount(() => {
           :shell="shell"
           :editor-open="editing"
           :settings-open="settingsOpen"
+          :update-available="releaseState.info?.available === true"
           @editor="editing ? void interfaces.close() : interfaces.open()"
           @settings="settingsOpen = !settingsOpen"
           @quit="void quit()"
         >
           <template #status>
             <RuntimeStatus :frame="liveFrame" :error="liveError" />
+            <UiIconButton
+              v-if="releaseState.info?.available === true"
+              class="release-update"
+              :label="t('shell.updates.available', { version: releaseState.info.latestVersion })"
+              @click="settingsOpen = true"
+            >
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 15V3m-5 5 5-5 5 5M3 13v4h14v-4" />
+              </svg>
+            </UiIconButton>
           </template>
         </ApplicationToolbar>
         <InterfacesPanel
@@ -237,7 +257,9 @@ onBeforeUnmount(() => {
           :key="'editor' + String(placementRevision)"
           :interfaces="interfaces"
           @close="void interfaces.close()"
-        />
+        >
+          <template #notices><ReleaseNotice :releases="releases" /></template>
+        </InterfacesPanel>
         <JournalSurface :journal="journal" :meters-visible="interfaces.gameSurfaceVisible()" />
         <FloatingSurface
           v-if="settingsOpen"
@@ -256,6 +278,7 @@ onBeforeUnmount(() => {
             :shell="shell"
             :hud-enabled="hudEnabled"
             :journal-enabled="journal.isVisible()"
+            :releases="releases"
             @hud="interfaces.toggleHud()"
             @journal="journal.toggle()"
             @reset="placementRevision++"
@@ -267,3 +290,8 @@ onBeforeUnmount(() => {
     </p>
   </main>
 </template>
+<style scoped>
+.release-update {
+  color: #e6b978;
+}
+</style>

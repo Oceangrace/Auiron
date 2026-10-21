@@ -64,6 +64,10 @@ Party support is experimental. See the [known limitations](docs/USAGE.md#known-l
 3. Launch AION 2 and enter the game world. Data appears automatically.
 4. Open the editor from the toolbar or system tray. Create or import a profile and save with <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
+If Aurion starts while your character is already in the world, use a class-specific skill
+to let it identify your class and load matching HUDs. If character data is still incomplete,
+keep Aurion running and re-enter your character once to receive the full initial snapshot.
+
 [Npcap settings, permissions, and controls →](docs/USAGE.md)
 
 ## Example profile

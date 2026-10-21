@@ -181,6 +181,21 @@ impl UnitState {
         self.cast = Some(preparation);
     }
 
+    pub(super) fn observe_class(&mut self, catalog: &RuntimeCatalog) {
+        // Own action metadata fills a missing class without replacing server identity.
+        if self.identity.class_name().is_some() {
+            return;
+        }
+
+        let class = self
+            .action
+            .as_ref()
+            .and_then(|action| catalog.skill(action.skill_id().get()))
+            .and_then(|skill| skill.class_name());
+
+        self.identity.observe(&None, class, None, None);
+    }
+
     pub(super) fn mana(&mut self, mana: &ManaSnapshot) {
         self.current_mana = mana.current().or(self.current_mana);
         self.maximum_mana = mana.maximum().or(self.maximum_mana);

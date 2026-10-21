@@ -5,6 +5,7 @@ import type { TriggerState } from './trigger-state';
 export interface LiveFrame {
   readonly status: SourceStatus;
   readonly inWorld: boolean;
+  readonly characterDataComplete: boolean;
   readonly atUs: number | null;
   readonly error: string | null;
   readonly visuals: Readonly<Record<string, PreviewVisual>>;

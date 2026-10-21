@@ -4,6 +4,7 @@ use crate::core::geometry::Viewport;
 use crate::core::icons::IconCache;
 use crate::core::icons::IconManifest;
 use crate::core::localization::LocaleRegistry;
+use crate::core::updates::ReleaseInfo;
 use crate::integrations::aion2::PacketPipeline;
 use crate::integrations::aion2::catalog::CatalogLabels;
 use crate::integrations::aion2::catalog::CatalogManifest;
@@ -11,6 +12,7 @@ use crate::integrations::aion2::catalog::CatalogStore;
 use crate::integrations::aion2::source::GameSource;
 use crate::integrations::windows::StartupDialog;
 use crate::integrations::windows::WindowsIconTransport;
+use crate::integrations::windows::WindowsReleases;
 use crate::integrations::windows::WindowsSpeechEngine;
 use crate::integrations::windows::WindowsTextMatcher;
 use crate::modules::combat_journal::JournalArchive;
@@ -50,6 +52,9 @@ impl Application {
             .invoke_handler(tauri::generate_handler![
                 catalog_labels,
                 icon_files,
+                app_release_check,
+                app_release_open,
+                app_version,
                 journal_commands::journal_frame,
                 journal_commands::journal_archive_read,
                 journal_commands::journal_archive_save,
@@ -301,4 +306,33 @@ fn icon_files(
     }
 
     Ok(cache.files())
+}
+
+#[tauri::command]
+async fn app_release_check(window: WebviewWindow) -> Result<ReleaseInfo, String> {
+    if window.label() != "editor" {
+        return Err("Unknown surface".into());
+    }
+
+    tauri::async_runtime::spawn_blocking(WindowsReleases::check)
+        .await
+        .map_err(|error| error.to_string())?
+}
+
+#[tauri::command]
+fn app_version(window: WebviewWindow) -> Result<&'static str, String> {
+    if window.label() != "editor" {
+        return Err("Unknown surface".into());
+    }
+
+    Ok(env!("CARGO_PKG_VERSION"))
+}
+
+#[tauri::command]
+fn app_release_open(window: WebviewWindow) -> Result<(), String> {
+    if window.label() != "editor" {
+        return Err("Unknown surface".into());
+    }
+
+    WindowsReleases::open()
 }

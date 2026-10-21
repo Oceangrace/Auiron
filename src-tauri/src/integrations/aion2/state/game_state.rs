@@ -675,6 +675,12 @@ impl GameState {
     }
 
     pub(crate) fn snapshot(&mut self, now_us: u64, status: SourceStatus) -> GameSnapshot {
+        if let Some(id) = self.player.id()
+            && let Some(player) = self.entities.get_mut(&id)
+        {
+            player.observe_class(&self.catalog);
+        }
+
         for record in self.combat.tick(now_us, self.player.id()) {
             self.append(record.event().clone(), record.at_us());
         }

@@ -11,6 +11,10 @@ pub(crate) struct SkillBook {
 }
 
 impl SkillBook {
+    pub(crate) fn complete(&self) -> bool {
+        self.complete
+    }
+
     pub(crate) fn learn(&mut self, skills: Vec<LearnedSkill>) {
         self.learned = skills;
         self.complete = true;
