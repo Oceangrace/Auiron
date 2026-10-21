@@ -10,6 +10,29 @@ The app runs on Windows 10/11. It requires WebView2 and
 [Npcap](https://npcap.com/) for live capture. Launch the built `aurion.exe` file.
 See the [development guide](DEVELOPMENT.md) for building from source.
 
+### First launch while already in the game
+
+Starting Aurion before entering the world supplies the full initial character data.
+When starting inside an existing session, Aurion can identify your class from your observed
+class-specific skills and load matching HUDs without re-entering the world. Common skills
+do not identify a class. Importing a profile only loads its layout and rules.
+
+The editor indicates when character data is incomplete. Missing names, HP/MP values, and
+the full skill list require the corresponding server messages; they are not inferred from
+other characters. If these remain missing, keep Aurion open, return to character selection,
+and enter the world again.
+After a successful connection, Aurion saves a session snapshot for later restarts in the same game session.
+
+### Updates
+
+Aurion checks the latest public GitHub release at startup and every four hours.
+A newer stable version appears in the editor and settings, with an indicator on the toolbar.
+Open **Settings → Updates** to see your installed version, check manually, or open the release page.
+Download and extract the new archive yourself; Aurion does not replace its executable automatically.
+An unavailable network does not block the HUD or editor.
+
+Version 0.1.0 has no built-in release notifications. Install a version with this feature manually first.
+
 ### Npcap and permissions
 
 Install [Npcap](https://npcap.com/#download). Aurion loads Npcap directly, so

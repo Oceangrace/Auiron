@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.0" /></a>
+  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.1" /></a>
   <a href="#установка"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust, редакция 2024" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />
@@ -63,6 +63,10 @@ Aurion получает данные из входящего игрового т
 2. Распакуйте архив Aurion и запустите **aurion.exe**.
 3. Запустите AION 2 и войдите в игровой мир. Данные появятся автоматически.
 4. Откройте редактор из тулбара или системного трея. Создайте или импортируйте профиль и сохраните через <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+
+Если Aurion запущен, когда персонаж уже в мире, примените классовое умение:
+приложение сможет определить класс и загрузить подходящие HUD. Если данные персонажа
+остаются неполными, оставьте Aurion открытым и повторно войдите для получения полного начального снимка.
 
 [Настройки Npcap, права доступа и управление →](docs/ru/USAGE.md)
 

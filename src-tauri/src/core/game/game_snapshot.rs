@@ -185,6 +185,21 @@ impl GameSnapshot {
         &self.target
     }
 
+    pub(crate) fn player_data_complete(&self) -> bool {
+        self.skill_book.complete()
+            && self
+                .player_id
+                .and_then(|id| self.entities.get(&id))
+                .is_some_and(|unit| {
+                    unit.identity().name().is_some()
+                        && unit.identity().class_name().is_some()
+                        && unit.health().current().is_some()
+                        && unit.health().maximum().is_some()
+                        && unit.mana().current().is_some()
+                        && unit.mana().maximum().is_some()
+                })
+    }
+
     pub(crate) fn map_id(&self) -> Option<MapId> {
         self.map_id
     }

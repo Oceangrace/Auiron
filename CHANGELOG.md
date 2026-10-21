@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-21
+
+### Added
+
+- Release checks at startup and every four hours, with update notices in the editor,
+  a toolbar indicator, and installed version and manual checks in settings.
+- A release-page button for downloading updates manually.
+
+### Fixed
+
+- Class-restricted HUDs remaining hidden after starting Aurion inside an existing game
+  session: observed own class-specific skills can now restore a missing character class.
+- The editor now explains when the HUD is waiting for character data after Aurion
+  starts inside an existing game session. The first-launch instructions cover this case.
+
 ## [0.1.0] - 2026-10-21
 
 Initial release of Aurion for AION 2.

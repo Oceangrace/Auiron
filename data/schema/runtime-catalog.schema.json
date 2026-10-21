@@ -1,5 +1,18 @@
 {
   "$defs": {
+    "CharacterClass": {
+      "enum": [
+        "Gladiator",
+        "Templar",
+        "Ranger",
+        "Assassin",
+        "Elementalist",
+        "Sorcerer",
+        "Cleric",
+        "Chanter"
+      ],
+      "type": "string"
+    },
     "EffectDisposition": {
       "enum": ["buff", "debuff", "passive", "item-passive"],
       "type": "string"
@@ -89,6 +102,16 @@
           "format": "uint32",
           "minimum": 1,
           "type": ["integer", "null"]
+        },
+        "className": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CharacterClass"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "cooldownGroup": {
           "format": "uint32",

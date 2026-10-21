@@ -14,7 +14,11 @@ const { t } = useI18n();
 const status = computed(() => props.frame?.status ?? SourceStatus.Offline);
 
 const active = computed(
-  () => status.value === SourceStatus.Live && props.frame?.inWorld === true && props.error === null,
+  () =>
+    status.value === SourceStatus.Live &&
+    props.frame?.inWorld === true &&
+    props.frame.characterDataComplete === true &&
+    props.error === null,
 );
 
 const label = computed(() => {
@@ -22,7 +26,7 @@ const label = computed(() => {
     return `${t('modules.interfaces.runtime.error')} · ${props.error}`;
   }
 
-  if (status.value === SourceStatus.Live && props.frame?.inWorld !== true) {
+  if (status.value === SourceStatus.Live && props.frame?.characterDataComplete !== true) {
     return t('modules.interfaces.runtime.waitingForCharacter');
   }
 
@@ -63,6 +67,7 @@ const label = computed(() => {
   color: var(--prism-accent);
 }
 .runtime-status[data-state='replay'],
+.runtime-status[data-state='live']:not(.is-active),
 .runtime-status[data-state='stale'] {
   color: #e6b978;
 }

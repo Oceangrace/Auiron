@@ -7,7 +7,12 @@ import { ToolbarLayout } from '../../core/preferences/toolbar-layout';
 import FloatingSurface from './floating-surface.vue';
 import UiIconButton from '../components/ui/ui-icon-button.vue';
 import { ToolbarVisibility } from './toolbar-visibility';
-const props = defineProps<{ shell: ShellController; editorOpen: boolean; settingsOpen: boolean }>();
+const props = defineProps<{
+  shell: ShellController;
+  editorOpen: boolean;
+  settingsOpen: boolean;
+  updateAvailable: boolean;
+}>();
 
 const emit = defineEmits<{ editor: []; settings: []; quit: [] }>();
 
@@ -146,6 +151,7 @@ const position = computed(() => {
         !preferences.toolbarAutoHide && preferences.toolbarLayout === ToolbarLayout.Vertical,
       'toolbar-autohide': preferences.toolbarAutoHide,
       'toolbar-hidden': hidden,
+      'has-update': updateAvailable,
     }"
     :draggable="!preferences.toolbarAutoHide"
     :interactive="!hidden"
@@ -258,6 +264,10 @@ const position = computed(() => {
   fill: none;
   stroke: currentColor;
   stroke-width: 1.5;
+}
+.has-update .toolbar-reveal {
+  color: #e6b978;
+  border-color: #e6b97880;
 }
 .toolbar-reveal:hover,
 .toolbar-reveal:focus-visible {

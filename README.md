@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.0" /></a>
+  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.1" /></a>
   <a href="#installation"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust edition 2024" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />
@@ -63,6 +63,10 @@ Party support is experimental. See the [known limitations](docs/USAGE.md#known-l
 2. Extract the Aurion archive and launch **aurion.exe**.
 3. Launch AION 2 and enter the game world. Data appears automatically.
 4. Open the editor from the toolbar or system tray. Create or import a profile and save with <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+
+If Aurion starts while your character is already in the world, use a class-specific skill
+to let it identify your class and load matching HUDs. If character data is still incomplete,
+keep Aurion running and re-enter your character once to receive the full initial snapshot.
 
 [Npcap settings, permissions, and controls →](docs/USAGE.md)
 

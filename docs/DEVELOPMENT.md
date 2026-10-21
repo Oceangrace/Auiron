@@ -34,7 +34,7 @@ Compress-Archive -LiteralPath @(
   'src-tauri/target/release/aurion.exe',
   'LICENSE',
   'src-tauri/target/release/licenses'
-) -DestinationPath 'src-tauri/target/release/Aurion-0.1.0-windows-x64.zip'
+) -DestinationPath 'src-tauri/target/release/Aurion-0.1.1-windows-x64.zip'
 ```
 
 Publish the archive alongside the source code for the same release tag.
