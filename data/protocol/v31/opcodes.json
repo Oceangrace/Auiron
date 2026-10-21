@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "clientBuild": 30,
+  "clientBuild": 31,
   "messages": [
     {
       "opcode": 65535,
@@ -147,7 +147,7 @@
       "support": {
         "kind": "partial",
         "decoder": "charge-started",
-        "reason": "Verified shape 1 with target marker 2 and ending 1. Duration uses the final SkillCharge stage from build 30, not the opaque trailing scalar. Released stage IDs end the matching preparation. Unknown skill charge data remains unknown; cancellation is not decoded."
+        "reason": "Verified shape 1 with target marker 2 and ending 1. Duration uses the final SkillCharge stage from the client catalog, not the opaque trailing scalar. Released stage IDs end the matching preparation. Unknown skill charge data remains unknown; cancellation is not decoded."
       }
     },
     {

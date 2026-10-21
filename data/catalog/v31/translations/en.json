@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "clientBuild": 30,
-  "catalogVersion": "build30-normalized-v2",
+  "clientBuild": 31,
+  "catalogVersion": "build31-normalized-v1",
   "entries": {
     "skill:1102:common": {
       "name": "Quick Gliding",
@@ -20168,7 +20168,7 @@
     },
     "enemy:2320308": {
       "name": "Merciless Flame Spirit",
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320308": {
           "name": "Exact variant"
@@ -21761,7 +21761,7 @@
     },
     "enemy:2320907": {
       "name": "Shining Mau Totem",
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320907": {
           "name": "Exact variant"
@@ -21995,7 +21995,7 @@
     },
     "enemy:2320905": {
       "name": "Ferocious Horn Mau Combat Chief",
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320905": {
           "name": "Exact variant"
@@ -22490,7 +22490,7 @@
     },
     "enemy:2320416": {
       "name": "Draconute Combatant",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320416": {
           "name": "Exact variant"
@@ -22877,7 +22877,7 @@
     },
     "enemy:2320108": {
       "name": "Neglected Gadioton",
-      "context": "Krao Cave — Expedition · Boss · Level 70",
+      "context": "Krao Cave — Expedition · Boss · Level 68",
       "forms": {
         "enemy:2320108": {
           "name": "Exact variant"
@@ -23435,7 +23435,7 @@
     },
     "enemy:2320812": {
       "name": "Vakron",
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320812": {
           "name": "Exact variant"
@@ -24038,7 +24038,7 @@
     },
     "enemy:2320316": {
       "name": "Exploding Flame Spirit",
-      "context": "Enemy · Level 74",
+      "context": "Enemy · Level 72",
       "forms": {
         "enemy:2320316": {
           "name": "Exact variant"
@@ -24668,7 +24668,7 @@
     },
     "enemy:2320471": {
       "name": "Transcendent Bakarma",
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "forms": {
         "enemy:2320471": {
           "name": "Exact variant"
@@ -26819,7 +26819,7 @@
     },
     "enemy:2320816": {
       "name": "Giant Honeybee",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320816": {
           "name": "Exact variant"
@@ -28916,7 +28916,7 @@
     },
     "enemy:2320426": {
       "name": "Decaying Abyss Insectoid",
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "forms": {
         "enemy:2320426": {
           "name": "Exact variant"
@@ -29384,7 +29384,7 @@
     },
     "enemy:2320411": {
       "name": "Draconute Task Soldier",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320411": {
           "name": "Exact variant"
@@ -32363,7 +32363,7 @@
     },
     "enemy:2320807": {
       "name": "Odyle Stone Spirit",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320807": {
           "name": "Exact variant"
@@ -32876,7 +32876,7 @@
     },
     "enemy:2320371": {
       "name": "Kromede's Desire",
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320371": {
           "name": "Exact variant"
@@ -33290,7 +33290,7 @@
     },
     "enemy:2320404": {
       "name": "Naga Priest",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320404": {
           "name": "Exact variant"
@@ -33965,7 +33965,7 @@
     },
     "enemy:2320173": {
       "name": "Ultimate Berk",
-      "context": "Boss · Level 70",
+      "context": "Boss · Level 68",
       "forms": {
         "enemy:2320173": {
           "name": "Exact variant"
@@ -34262,7 +34262,7 @@
     },
     "enemy:2320171": {
       "name": "Ultimate Berk",
-      "context": "Krao Cave — Expedition · Boss · Level 70",
+      "context": "Krao Cave — Expedition · Boss · Level 68",
       "forms": {
         "enemy:2320171": {
           "name": "Exact variant"
@@ -34586,7 +34586,7 @@
     },
     "enemy:2320208": {
       "name": "Urugugu Wind Mage",
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320208": {
           "name": "Exact variant"
@@ -34640,7 +34640,7 @@
     },
     "enemy:2320209:2320210:2320224": {
       "name": "Urugugu Wind Mage",
-      "context": "Enemy · Level 72",
+      "context": "Enemy · Level 70",
       "forms": {
         "enemy:2320209:2320210:2320224": {
           "name": "Exact variant"
@@ -35333,7 +35333,7 @@
     },
     "enemy:2320809": {
       "name": "Eroded Kalgolem",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320809": {
           "name": "Exact variant"
@@ -37070,7 +37070,7 @@
     },
     "enemy:2320311": {
       "name": "Red Spark Ignus",
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320311": {
           "name": "Exact variant"
@@ -37322,7 +37322,7 @@
     },
     "enemy:2320183:2320184": {
       "name": "Twisted Croka",
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "forms": {
         "enemy:2320183:2320184": {
           "name": "Exact variant"
@@ -43640,7 +43640,7 @@
     },
     "enemy:2320206": {
       "name": "Guardian Captain Raur",
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320206": {
           "name": "Exact variant"
@@ -43973,7 +43973,7 @@
     },
     "enemy:2320419": {
       "name": "Draconute Sentry Captain",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320419": {
           "name": "Exact variant"
@@ -47942,7 +47942,7 @@
     },
     "enemy:2320808": {
       "name": "Forest Coradon",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320808": {
           "name": "Exact variant"
@@ -48491,7 +48491,7 @@
     },
     "enemy:2320215": {
       "name": "Urugugu Bloodfighter",
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320215": {
           "name": "Exact variant"
@@ -49094,7 +49094,7 @@
     },
     "enemy:2320401": {
       "name": "Phantasmal Lakshmi",
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "forms": {
         "enemy:2320401": {
           "name": "Exact variant"
@@ -52370,7 +52370,7 @@
     },
     "enemy:2320103": {
       "name": "Sniping Croka",
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320103": {
           "name": "Exact variant"
@@ -52406,7 +52406,7 @@
     },
     "enemy:2320113": {
       "name": "Sniping Croka",
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "forms": {
         "enemy:2320113": {
           "name": "Exact variant"
@@ -53702,7 +53702,7 @@
     },
     "enemy:2320312": {
       "name": "Black Smoke Murute",
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320312": {
           "name": "Exact variant"
@@ -53972,7 +53972,7 @@
     },
     "enemy:2320107": {
       "name": "Krao Mutant",
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320107": {
           "name": "Exact variant"
@@ -54782,7 +54782,7 @@
     },
     "enemy:2320914": {
       "name": "Mutated Shulak Overseer",
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320914": {
           "name": "Exact variant"
@@ -57554,7 +57554,7 @@
     },
     "enemy:2320909": {
       "name": "Necromancer Duanka",
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320909": {
           "name": "Exact variant"
@@ -58130,7 +58130,7 @@
     },
     "enemy:2320910": {
       "name": "Ferocious Horn Nuakum",
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320910": {
           "name": "Exact variant"
@@ -60704,7 +60704,7 @@
     },
     "enemy:2320313": {
       "name": "Flame Stone Guardian Statue",
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320313": {
           "name": "Exact variant"
@@ -61100,7 +61100,7 @@
     },
     "enemy:2320405": {
       "name": "Nagarant Guardian Warrior",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320405": {
           "name": "Exact variant"
@@ -61307,7 +61307,7 @@
     },
     "enemy:2320425": {
       "name": "Klaw Janitor",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320425": {
           "name": "Exact variant"
@@ -61433,7 +61433,7 @@
     },
     "enemy:2320805": {
       "name": "Corrupted Fairy",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320805": {
           "name": "Exact variant"
@@ -63062,7 +63062,7 @@
     },
     "enemy:2320413": {
       "name": "Draconute Infantry",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320413": {
           "name": "Exact variant"
@@ -63224,7 +63224,7 @@
     },
     "enemy:2320309": {
       "name": "Flame Barghest",
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320309": {
           "name": "Exact variant"
@@ -71540,7 +71540,7 @@
     },
     "enemy:2320815": {
       "name": "Ferocious Queen Bee",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320815": {
           "name": "Exact variant"
@@ -72098,7 +72098,7 @@
     },
     "enemy:2320218": {
       "name": "Divine Auldor",
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320218": {
           "name": "Exact variant"
@@ -72269,7 +72269,7 @@
     },
     "enemy:2320310": {
       "name": "Silver Blade Rotan",
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320310": {
           "name": "Exact variant"
@@ -72341,7 +72341,7 @@
     },
     "enemy:2320408": {
       "name": "Petty Officer Akvar",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320408": {
           "name": "Exact variant"
@@ -73052,7 +73052,7 @@
     },
     "enemy:2320813": {
       "name": "Sweet Poison Flower",
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320813": {
           "name": "Exact variant"
@@ -73250,7 +73250,7 @@
     },
     "enemy:2320402": {
       "name": "Lakshmi's Handmaiden",
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "forms": {
         "enemy:2320402": {
           "name": "Exact variant"
@@ -73565,7 +73565,7 @@
     },
     "enemy:2320415": {
       "name": "Draconute Sniper",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320415": {
           "name": "Exact variant"
@@ -74087,7 +74087,7 @@
     },
     "enemy:2320418": {
       "name": "Draconute Sentry",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320418": {
           "name": "Exact variant"
@@ -74870,7 +74870,7 @@
     },
     "enemy:2320908": {
       "name": "Watchdog Kwapo",
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "forms": {
         "enemy:2320908": {
           "name": "Exact variant"
@@ -74933,7 +74933,7 @@
     },
     "enemy:2320221": {
       "name": "Surveillance Blazing Totem",
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320221": {
           "name": "Exact variant"
@@ -74978,7 +74978,7 @@
     },
     "enemy:2320220": {
       "name": "Surveillance Healing Totem",
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "forms": {
         "enemy:2320220": {
           "name": "Exact variant"
@@ -75824,7 +75824,7 @@
     },
     "enemy:2320207": {
       "name": "Judge Urahum",
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320207": {
           "name": "Exact variant"
@@ -76706,7 +76706,7 @@
     },
     "enemy:2320811": {
       "name": "Thamon",
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320811": {
           "name": "Exact variant"
@@ -77003,7 +77003,7 @@
     },
     "enemy:2320810": {
       "name": "Tiere",
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "forms": {
         "enemy:2320810": {
           "name": "Exact variant"
@@ -79118,7 +79118,7 @@
     },
     "enemy:2320406": {
       "name": "Manager Abatur",
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320406": {
           "name": "Exact variant"
@@ -82736,7 +82736,7 @@
     },
     "enemy:2320403": {
       "name": "Predator Saraswati",
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "forms": {
         "enemy:2320403": {
           "name": "Exact variant"
@@ -83051,7 +83051,7 @@
     },
     "enemy:2320904": {
       "name": "Ferocious Horn Mau Brawler",
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320904": {
           "name": "Exact variant"
@@ -83582,7 +83582,7 @@
     },
     "enemy:2320106": {
       "name": "Krao Seal Guardian",
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "forms": {
         "enemy:2320106": {
           "name": "Exact variant"
@@ -84077,7 +84077,7 @@
     },
     "enemy:2320906": {
       "name": "Ferocious Horn Mau Totem Shaman",
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "forms": {
         "enemy:2320906": {
           "name": "Exact variant"

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "clientBuild": 30,
-  "catalogVersion": "build30-normalized-v2",
+  "clientBuild": 31,
+  "catalogVersion": "build31-normalized-v1",
   "entries": [
     {
       "entry": {
@@ -3570,7 +3570,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -6394,7 +6394,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "skills": [
         {
           "key": "enemy:2320907:skill:1240170",
@@ -6812,7 +6812,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -7744,7 +7744,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -8466,7 +8466,7 @@
           }
         ]
       },
-      "context": "Krao Cave — Expedition · Boss · Level 70",
+      "context": "Krao Cave — Expedition · Boss · Level 68",
       "skills": [],
       "effects": [
         {
@@ -9428,7 +9428,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "skills": [
         {
           "key": "enemy:2320812:skill:1604390",
@@ -10501,7 +10501,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 74",
+      "context": "Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -11622,7 +11622,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "skills": [
         {
           "key": "enemy:2320471:skill:1800530",
@@ -15445,7 +15445,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -19122,7 +19122,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -19943,7 +19943,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -25390,7 +25390,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -26279,7 +26279,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "skills": [],
       "effects": [
         {
@@ -27019,7 +27019,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -28197,7 +28197,7 @@
           }
         ]
       },
-      "context": "Boss · Level 70",
+      "context": "Boss · Level 68",
       "skills": [
         {
           "key": "enemy:2320173:skill:1800030",
@@ -28680,7 +28680,7 @@
           }
         ]
       },
-      "context": "Krao Cave — Expedition · Boss · Level 70",
+      "context": "Krao Cave — Expedition · Boss · Level 68",
       "skills": [
         {
           "key": "enemy:2320171:skill:1800030",
@@ -29257,7 +29257,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -29359,7 +29359,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 72",
+      "context": "Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -30564,7 +30564,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -33577,7 +33577,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "skills": [
         {
           "key": "enemy:2320311:skill:1600780",
@@ -34018,7 +34018,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -45277,7 +45277,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "skills": [
         {
           "key": "enemy:2320206:skill:1504430",
@@ -45846,7 +45846,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -52881,7 +52881,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -53854,7 +53854,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -54904,7 +54904,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "skills": [],
       "effects": [
         {
@@ -60846,7 +60846,7 @@
           }
         ]
       },
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "skills": [
         {
           "key": "enemy:2320103:skill:1100020",
@@ -60914,7 +60914,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "skills": [
         {
           "key": "enemy:2320113:skill:1100020",
@@ -63211,7 +63211,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "skills": [
         {
           "key": "enemy:2320312:skill:1600680",
@@ -63686,7 +63686,7 @@
           }
         ]
       },
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -65141,7 +65141,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -69987,7 +69987,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "skills": [
         {
           "key": "enemy:2320909:skill:1607020",
@@ -71034,7 +71034,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "skills": [],
       "effects": [
         {
@@ -75635,7 +75635,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -76354,7 +76354,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -76712,7 +76712,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -76944,7 +76944,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -79917,7 +79917,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -80223,7 +80223,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Enemy · Level 74",
+      "context": "Fire Temple — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -95173,7 +95173,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [],
       "effects": [
         {
@@ -96134,7 +96134,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "skills": [
         {
           "key": "enemy:2320218:skill:1600920",
@@ -96431,7 +96431,7 @@
           }
         ]
       },
-      "context": "Fire Temple — Expedition · Boss · Level 74",
+      "context": "Fire Temple — Expedition · Boss · Level 72",
       "skills": [],
       "effects": [
         {
@@ -96567,7 +96567,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -97875,7 +97875,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Enemy · Level 72",
+      "context": "Vakron Sky Island — Expedition · Enemy · Level 70",
       "skills": [
         {
           "key": "enemy:2320813:skill:1226560",
@@ -98245,7 +98245,7 @@
           }
         ]
       },
-      "context": "Enemy · Level 70",
+      "context": "Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -98833,7 +98833,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -99778,7 +99778,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -101225,7 +101225,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Boss · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Boss · Level 72",
       "skills": [
         {
           "key": "enemy:2320908:skill:1606910",
@@ -101337,7 +101337,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "skills": [
         {
           "key": "enemy:2320221:skill:1217330",
@@ -101420,7 +101420,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Enemy · Level 72",
+      "context": "Urugugu Canyon — Expedition · Enemy · Level 70",
       "skills": [
         {
           "key": "enemy:2320220:skill:1217320",
@@ -102874,7 +102874,7 @@
           }
         ]
       },
-      "context": "Urugugu Canyon — Expedition · Boss · Level 72",
+      "context": "Urugugu Canyon — Expedition · Boss · Level 70",
       "skills": [
         {
           "key": "enemy:2320207:skill:1605090",
@@ -104446,7 +104446,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "skills": [],
       "effects": [
         {
@@ -104992,7 +104992,7 @@
           }
         ]
       },
-      "context": "Vakron Sky Island — Expedition · Boss · Level 72",
+      "context": "Vakron Sky Island — Expedition · Boss · Level 70",
       "skills": [],
       "effects": [
         {
@@ -108806,7 +108806,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Enemy · Level 70",
+      "context": "Draupnir — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -115054,7 +115054,7 @@
           }
         ]
       },
-      "context": "Draupnir — Expedition · Boss · Level 70",
+      "context": "Draupnir — Expedition · Boss · Level 68",
       "skills": [],
       "effects": [
         {
@@ -115616,7 +115616,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
@@ -116553,7 +116553,7 @@
           }
         ]
       },
-      "context": "Krao Cave — Expedition · Enemy · Level 70",
+      "context": "Krao Cave — Expedition · Enemy · Level 68",
       "skills": [],
       "effects": [
         {
@@ -117448,7 +117448,7 @@
           }
         ]
       },
-      "context": "Ferocious Horn Den — Expedition · Enemy · Level 74",
+      "context": "Ferocious Horn Den — Expedition · Enemy · Level 72",
       "skills": [],
       "effects": [
         {
