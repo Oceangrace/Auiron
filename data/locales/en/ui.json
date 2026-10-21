@@ -65,6 +65,19 @@
       "noticeTitle": "Aurion is running",
       "noticeDescription": "The overlay will appear when you enter AION 2.",
       "closeNotice": "Dismiss notification"
+    },
+    "updates": {
+      "title": "Updates",
+      "version": "Aurion {version}",
+      "available": "Aurion {version} is available",
+      "current": "You have the latest version",
+      "hint": "Checks GitHub at startup and every 4 hours. Install new versions manually.",
+      "check": "Check for updates",
+      "checking": "Checking…",
+      "open": "Open release",
+      "dismiss": "Dismiss update notice",
+      "checkFailed": "Could not check for updates. Try again later or open the releases page.",
+      "openFailed": "Could not open the browser. Releases: github.com/Oceangrace/Auiron/releases"
     }
   },
   "select": {
@@ -1323,7 +1336,7 @@
           "replay": "Playing a recording",
           "stale": "AION 2 data is not updating"
         },
-        "waitingForCharacter": "Waiting to enter the AION 2 world",
+        "waitingForCharacter": "Character data is incomplete",
         "error": "Unable to receive AION 2 data",
         "trigger": "Trigger",
         "states": {
@@ -1331,7 +1344,8 @@
           "inactive": "Inactive",
           "unknown": "Not enough data",
           "unsupported": "Not supported"
-        }
+        },
+        "firstLaunchHint": "If Aurion was started inside the world, use a class ability. If the name, HP/MP or skills are still missing, keep Aurion running and re-enter your character."
       },
       "skillStates": {
         "cooldown": "Cooldown",

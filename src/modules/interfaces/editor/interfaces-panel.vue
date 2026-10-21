@@ -2,6 +2,7 @@
 import UiPageHeader from '../../../renderer/components/ui/ui-page-header.vue';
 import UiMessage from '../../../renderer/components/ui/ui-message.vue';
 import PreviewControls from './preview-controls.vue';
+import CharacterStatus from './character-status.vue';
 import { computed, nextTick, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { InterfacesModule } from '../interfaces-module';
@@ -39,6 +40,12 @@ const session = props.interfaces.session;
 const state = session.getState();
 
 const snapshot = props.interfaces.getSnapshot();
+
+const liveFrame = props.interfaces.live.getFrame();
+
+const liveError = props.interfaces.live.getError();
+
+const previewEnabled = props.interfaces.preview.enabled;
 
 const query = ref('');
 
@@ -285,6 +292,8 @@ watch(
       </div>
     </template>
     <main class="interfaces-editor">
+      <slot name="notices" />
+      <CharacterStatus v-if="!previewEnabled" :frame="liveFrame" :error="liveError" />
       <PreviewControls :preview="interfaces.preview" />
       <div v-if="state.message !== null" class="editor-error" role="alert">
         <UiMessage :text="state.message" />
