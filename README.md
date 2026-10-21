@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.0" /></a>
+  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.1" /></a>
   <a href="#installation"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust edition 2024" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />
