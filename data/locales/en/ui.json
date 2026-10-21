@@ -77,7 +77,7 @@
       "open": "Open release",
       "dismiss": "Dismiss update notice",
       "checkFailed": "Could not check for updates. Try again later or open the releases page.",
-      "openFailed": "Could not open the browser. Releases: github.com/Oceangrace/Auiron/releases"
+      "openFailed": "Could not open the browser. Releases: github.com/Oceangrace/Aurion/releases"
     }
   },
   "select": {

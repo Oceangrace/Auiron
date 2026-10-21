@@ -77,7 +77,7 @@
       "open": "Открыть релиз",
       "dismiss": "Скрыть уведомление об обновлении",
       "checkFailed": "Не удалось проверить обновления. Попробуйте позже или откройте страницу релизов.",
-      "openFailed": "Не удалось открыть браузер. Релизы: github.com/Oceangrace/Auiron/releases"
+      "openFailed": "Не удалось открыть браузер. Релизы: github.com/Oceangrace/Aurion/releases"
     }
   },
   "select": {
