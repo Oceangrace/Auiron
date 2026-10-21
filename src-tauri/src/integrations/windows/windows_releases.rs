@@ -37,7 +37,7 @@ impl WindowsReleases {
             ShellExecuteW(
                 None,
                 w!("open"),
-                w!("https://github.com/Oceangrace/Auiron/releases/latest"),
+                w!("https://github.com/Oceangrace/Aurion/releases/latest"),
                 PCWSTR::null(),
                 PCWSTR::null(),
                 SW_SHOWNORMAL,
@@ -84,10 +84,11 @@ impl WindowsReleases {
             let connection =
                 HttpHandle::new(WinHttpConnect(session.raw(), w!("api.github.com"), 443, 0))?;
 
+            // The repository ID stays the same when its name or owner changes.
             let request = HttpHandle::new(WinHttpOpenRequest(
                 connection.raw(),
                 w!("GET"),
-                w!("/repos/Oceangrace/Auiron/releases/latest"),
+                w!("/repositories/1427707629/releases/latest"),
                 PCWSTR::null(),
                 PCWSTR::null(),
                 ptr::null(),

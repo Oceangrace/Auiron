@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.1" /></a>
+  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.2" /></a>
   <a href="#установка"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust, редакция 2024" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />
@@ -57,7 +57,7 @@ Aurion получает данные из входящего игрового т
 
 <p><strong>Требования:</strong> Windows 10/11 · <a href="https://npcap.com/#download">Npcap</a> · Microsoft Edge WebView2</p>
 
-[Скачать Aurion для Windows →](https://github.com/Oceangrace/Auiron/releases/latest)
+[Скачать Aurion для Windows →](https://github.com/Oceangrace/Aurion/releases/latest)
 
 1. Установите Npcap.
 2. Распакуйте архив Aurion и запустите **aurion.exe**.

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.1" /></a>
+  <a href="#installation"><img src="docs/assets/badges/version.svg" alt="Version 0.1.2" /></a>
   <a href="#installation"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust edition 2024" /></a>
   <a href="docs/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />
@@ -57,7 +57,7 @@ Party support is experimental. See the [known limitations](docs/USAGE.md#known-l
 
 <p><strong>Requires:</strong> Windows 10/11 · <a href="https://npcap.com/#download">Npcap</a> · Microsoft Edge WebView2</p>
 
-[Download Aurion for Windows →](https://github.com/Oceangrace/Auiron/releases/latest)
+[Download Aurion for Windows →](https://github.com/Oceangrace/Aurion/releases/latest)
 
 1. Install Npcap.
 2. Extract the Aurion archive and launch **aurion.exe**.
