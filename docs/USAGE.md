@@ -31,8 +31,6 @@ Open **Settings → Updates** to see your installed version, check manually, or 
 Download and extract the new archive yourself; Aurion does not replace its executable automatically.
 An unavailable network does not block the HUD or editor.
 
-Version 0.1.0 has no built-in release notifications. Install a version with this feature manually first.
-
 ### Npcap and permissions
 
 Install [Npcap](https://npcap.com/#download). Aurion loads Npcap directly, so

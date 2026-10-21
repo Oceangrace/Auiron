@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-21
+
+### Changed
+
+- Renamed the GitHub repository from Auiron to Aurion and updated download links.
+
+### Fixed
+
+- Release checks now use the permanent GitHub repository ID, so repository renames
+  do not break update notifications.
+
 ## [0.1.1] - 2026-10-21
 
 ### Added
