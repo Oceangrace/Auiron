@@ -1,0 +1,33 @@
+{
+  "$id": "urn:aurion:SkillNameCatalog:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalogVersion": {
+      "type": "string"
+    },
+    "clientBuild": {
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schemaVersion": {
+      "format": "uint32",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "skills": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^-?\\d+$": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": ["schemaVersion", "clientBuild", "catalogVersion", "skills"],
+  "title": "SkillNameCatalog",
+  "type": "object"
+}

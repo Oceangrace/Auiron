@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "composite": true,
+    "tsBuildInfoFile": "node_modules/.cache/node.tsbuildinfo"
+  },
+  "include": ["vite.config.ts"]
+}

@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "EffectDisposition": {
+      "enum": ["buff", "debuff", "passive", "item-passive"],
+      "type": "string"
+    },
+    "EffectMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "$ref": "#/$defs/EffectDisposition"
+        },
+        "enablesShockRemoval": {
+          "default": false,
+          "type": "boolean"
+        },
+        "healingRows": {
+          "default": [],
+          "items": {
+            "format": "uint8",
+            "maximum": 255,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "icon": {
+          "type": ["string", "null"]
+        },
+        "iconVisible": {
+          "type": "boolean"
+        },
+        "remainingTimeVisible": {
+          "type": "boolean"
+        },
+        "stackLimit": {
+          "format": "uint16",
+          "maximum": 65535,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["disposition", "stackLimit", "iconVisible", "remainingTimeVisible"],
+      "type": "object"
+    },
+    "NpcMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "boss": {
+          "type": "boolean"
+        },
+        "playerSummon": {
+          "type": "boolean"
+        }
+      },
+      "required": ["boss", "playerSummon"],
+      "type": "object"
+    },
+    "SkillMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic": {
+          "default": false,
+          "type": "boolean"
+        },
+        "castingMs": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "chainPrevious": {
+          "default": null,
+          "format": "uint32",
+          "minimum": 1,
+          "type": ["integer", "null"]
+        },
+        "chainWindowMs": {
+          "default": 0,
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "chargeMs": {
+          "format": "uint32",
+          "minimum": 1,
+          "type": ["integer", "null"]
+        },
+        "chargeSkill": {
+          "format": "uint32",
+          "minimum": 1,
+          "type": ["integer", "null"]
+        },
+        "cooldownGroup": {
+          "format": "uint32",
+          "minimum": 1,
+          "type": ["integer", "null"]
+        },
+        "cooldownMs": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "healingOnly": {
+          "default": false,
+          "type": "boolean"
+        },
+        "icon": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "manaOnly": {
+          "type": "boolean"
+        },
+        "requiresShock": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": ["cooldownMs", "castingMs", "manaOnly"],
+      "type": "object"
+    }
+  },
+  "$id": "urn:aurion:RuntimeCatalog:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalogVersion": {
+      "type": "string"
+    },
+    "clientBuild": {
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "effects": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^-?\\d+$": {
+          "$ref": "#/$defs/EffectMetadata"
+        }
+      },
+      "type": "object"
+    },
+    "npcs": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^-?\\d+$": {
+          "$ref": "#/$defs/NpcMetadata"
+        }
+      },
+      "type": "object"
+    },
+    "schemaVersion": {
+      "format": "uint8",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "skills": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^-?\\d+$": {
+          "$ref": "#/$defs/SkillMetadata"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": ["schemaVersion", "clientBuild", "catalogVersion", "effects", "skills", "npcs"],
+  "title": "RuntimeCatalog",
+  "type": "object"
+}

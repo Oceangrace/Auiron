@@ -1,0 +1,395 @@
+{
+  "$defs": {
+    "BossEvent": {
+      "enum": ["before-spawn", "spawned", "alive", "unknown"],
+      "type": "string"
+    },
+    "BossTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "beforeSeconds": {
+          "format": "double",
+          "maximum": 86400,
+          "minimum": 0,
+          "type": "number"
+        },
+        "bossId": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "durationMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "event": {
+          "$ref": "#/$defs/BossEvent"
+        }
+      },
+      "required": ["bossId", "event", "beforeSeconds", "durationMs"],
+      "type": "object"
+    },
+    "ConditionMode": {
+      "enum": ["all", "any"],
+      "type": "string"
+    },
+    "Direction": {
+      "enum": ["right", "left", "up", "down"],
+      "type": "string"
+    },
+    "EffectFilter": {
+      "enum": ["any", "buff", "debuff"],
+      "type": "string"
+    },
+    "EffectOrigin": {
+      "enum": ["any", "mine", "enemy"],
+      "type": "string"
+    },
+    "EffectPresence": {
+      "enum": ["present", "missing"],
+      "type": "string"
+    },
+    "EffectTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "cloneDirection": {
+          "$ref": "#/$defs/Direction"
+        },
+        "clones": {
+          "type": "boolean"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/GameId"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "filter": {
+          "$ref": "#/$defs/EffectFilter"
+        },
+        "member": {
+          "maxLength": 64,
+          "type": "string"
+        },
+        "minStacks": {
+          "format": "double",
+          "maximum": 999,
+          "minimum": 1,
+          "type": "number"
+        },
+        "origin": {
+          "$ref": "#/$defs/EffectOrigin"
+        },
+        "presence": {
+          "$ref": "#/$defs/EffectPresence"
+        },
+        "remainingBelowSeconds": {
+          "format": "double",
+          "maximum": 3600,
+          "minimum": 0,
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/TriggerUnit"
+        }
+      },
+      "required": [
+        "unit",
+        "member",
+        "filter",
+        "effects",
+        "presence",
+        "origin",
+        "minStacks",
+        "remainingBelowSeconds",
+        "clones",
+        "cloneDirection"
+      ],
+      "type": "object"
+    },
+    "EncounterSchedule": {
+      "additionalProperties": false,
+      "properties": {
+        "bossOnly": {
+          "type": "boolean"
+        },
+        "firstMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 0,
+          "type": "number"
+        },
+        "intervalMs": {
+          "format": "double",
+          "maximum": 600000,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": ["bossOnly", "firstMs", "intervalMs"],
+      "type": "object"
+    },
+    "EventParticipant": {
+      "enum": ["any", "player", "party", "group", "target", "entity"],
+      "type": "string"
+    },
+    "EventTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "delayMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 0,
+          "type": ["number", "null"]
+        },
+        "durationMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "effectId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event": {
+          "$ref": "#/$defs/GameEventType"
+        },
+        "minValue": {
+          "format": "double",
+          "maximum": 1000000000000.0,
+          "minimum": 0,
+          "type": ["number", "null"]
+        },
+        "recipient": {
+          "$ref": "#/$defs/EventParticipant"
+        },
+        "schedule": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EncounterSchedule"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "skillId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/EventParticipant"
+        },
+        "sourceActorKey": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": ["string", "null"]
+        },
+        "sourceNpcId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "useWidgetSkill": {
+          "type": ["boolean", "null"]
+        }
+      },
+      "required": ["event", "source", "recipient", "durationMs"],
+      "type": "object"
+    },
+    "GameEventType": {
+      "enum": [
+        "cast-started",
+        "hit-landed",
+        "server-battle-changed",
+        "combat-started",
+        "combat-ended",
+        "encounter-started",
+        "encounter-ended",
+        "healing",
+        "miss",
+        "resist",
+        "death",
+        "despawn",
+        "map-changed",
+        "damage",
+        "health-changed",
+        "effect-applied",
+        "effect-updated",
+        "effect-removed",
+        "skill-used",
+        "combo-available",
+        "combo-unavailable"
+      ],
+      "type": "string"
+    },
+    "GameId": {
+      "format": "uint32",
+      "maximum": 4294967295,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "TriggerRule": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "boss",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/BossTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "value",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/ValueTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "effect",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/EffectTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "event",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/EventTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        }
+      ]
+    },
+    "TriggerUnit": {
+      "enum": ["entity", "player", "target", "encounter", "party", "group", "member"],
+      "type": "string"
+    },
+    "ValueOperator": {
+      "enum": ["eq", "ne", "lt", "lte", "gt", "gte"],
+      "type": "string"
+    },
+    "ValueTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ValueOperator"
+        },
+        "path": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 128,
+          "type": "string"
+        }
+      },
+      "required": ["path", "operator", "value"],
+      "type": "object"
+    }
+  },
+  "$id": "urn:aurion:TriggerGroup:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dataRuleId": {
+      "type": ["string", "null"]
+    },
+    "mode": {
+      "$ref": "#/$defs/ConditionMode"
+    },
+    "rules": {
+      "items": {
+        "$ref": "#/$defs/TriggerRule"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": ["mode", "rules"],
+  "title": "TriggerGroup",
+  "type": "object"
+}

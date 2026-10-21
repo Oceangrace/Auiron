@@ -1,0 +1,32 @@
+import type { CatalogField } from './catalog-field';
+import { DataKind } from './data-kind';
+
+export const eventCatalog: readonly CatalogField[] = [
+  { path: 'event.lifeSteal', kind: DataKind.Number },
+  { path: 'event.protections', kind: DataKind.Number },
+  { path: 'event.previousSkillId', kind: DataKind.Number },
+  { path: 'event.critical', kind: DataKind.Boolean },
+  { path: 'event.periodic', kind: DataKind.Boolean },
+  { path: 'event.additionalHits', kind: DataKind.Number },
+  { path: 'event.additionalDamage', kind: DataKind.Number },
+  { path: 'event.powerScalar', kind: DataKind.Number },
+  { path: 'event.restoredHp', kind: DataKind.Number },
+  { path: 'event.removalReason', kind: DataKind.Number },
+  { path: 'event.removedBy', kind: DataKind.Text },
+  { path: 'event.hitType', kind: DataKind.Text },
+  { path: 'event.modifiers', kind: DataKind.Text },
+  { path: 'event.id', kind: DataKind.Text },
+  { path: 'event.type', kind: DataKind.Text },
+  { path: 'event.entityId', kind: DataKind.Text },
+  { path: 'event.entityName', kind: DataKind.Text },
+  { path: 'event.sourceId', kind: DataKind.Text },
+  { path: 'event.sourceName', kind: DataKind.Text },
+  { path: 'event.skillId', kind: DataKind.Number },
+  { path: 'event.effectId', kind: DataKind.Number },
+  { path: 'event.instanceId', kind: DataKind.Number },
+  { path: 'event.value', kind: DataKind.Number },
+  { path: 'event.duration', kind: DataKind.Duration },
+  { path: 'event.elapsed', kind: DataKind.Duration },
+  { path: 'event.countdown', kind: DataKind.Duration },
+  { path: 'event.remaining', kind: DataKind.Duration },
+];

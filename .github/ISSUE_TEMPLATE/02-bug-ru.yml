@@ -1,0 +1,71 @@
+name: Сообщить об ошибке (Русский)
+description: Проблема в Aurion или примере HUD.
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Сначала поищите похожие issues. Описывайте одну проблему в одном сообщении.
+        Ошибки в примере HUD клерика тоже присылайте, даже если причина непонятна.
+  - type: input
+    id: version
+    attributes:
+      label: Версия Aurion
+      description: Для своей сборки добавьте коммит или дату сборки, если знаете.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Где возникает проблема?
+      options:
+        - Пример HUD клерика
+        - Свой или импортированный HUD
+        - Рамки группы
+        - Боевой журнал или DPS/HPS
+        - Редактор, импорт или экспорт
+        - Таймеры боссов или оповещения
+        - Запуск или получение игровых данных
+        - Другое / не знаю
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Что произошло?
+      description: Опишите, что отсутствует или работает неправильно. Приведите точный текст ошибки.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Как повторить проблему?
+      description: Перечислите действия. Если ошибка возникает не каждый раз, опишите ситуацию.
+      placeholder: |
+        1. Запустил Aurion и вошёл в игру.
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Какой результат ожидался?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Настройки и обстоятельства
+      description: |
+        Версия Windows; название профиля и меняли ли вы его; класс или умение, если это важно.
+        Для проблем с расположением: разрешение экрана и масштаб HUD. Был открыт редактор или симулятор?
+        Это произошло после перезапуска, телепорта или смены группы?
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Скриншоты, видео или логи (необязательно)
+      description: |
+        Прикрепите файлы или вставьте нужный фрагмент лога. Сначала уберите личные данные.
+        Записи трафика без запроса прикладывать не нужно.

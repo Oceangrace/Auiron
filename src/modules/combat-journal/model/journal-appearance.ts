@@ -1,0 +1,44 @@
+import type { JournalBorderStyle } from './journal-border-style';
+import type { JournalFont } from './journal-font';
+import type { JournalHeaderButton } from './journal-header-button';
+
+export interface JournalAppearance {
+  readonly fontSize: number;
+  readonly rowHeight: number;
+  readonly opacity: number;
+  readonly borderWidth: number;
+  readonly padding: number;
+  readonly headerOpacity: number;
+  readonly headerHeight: number;
+  readonly headerFontSize: number;
+  readonly rowBackgroundOpacity: number;
+  readonly rowGap: number;
+  readonly rowPadding: number;
+  readonly rowRadius: number;
+  readonly barOpacity: number;
+  readonly decimals: number;
+  readonly animationMs: number;
+  readonly accent: string;
+  readonly backgroundColor: string;
+  readonly borderColor: string;
+  readonly headerColor: string;
+  readonly headerTextColor: string;
+  readonly rowBackgroundColor: string;
+  readonly textColor: string;
+  readonly valueColor: string;
+  readonly totalColor: string;
+  readonly customColors: boolean;
+  readonly classColors: boolean;
+  readonly bars: boolean;
+  readonly compactNumbers: boolean;
+  readonly showTotal: boolean;
+  readonly showHeader: boolean;
+  readonly barGradient: boolean;
+  readonly showRank: boolean;
+  readonly showPercent: boolean;
+  readonly borderStyle: JournalBorderStyle;
+  readonly font: JournalFont;
+  readonly headerButtons: readonly JournalHeaderButton[];
+  readonly headerButtonSize: number;
+  readonly headerButtonsOnHover: boolean;
+}

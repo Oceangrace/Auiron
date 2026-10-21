@@ -1,0 +1,150 @@
+{
+  "$defs": {
+    "DecoderKind": {
+      "enum": [
+        "target-selected",
+        "cast-started",
+        "charge-started",
+        "health-pair",
+        "hit-notice",
+        "instance-timer",
+        "odyle-list",
+        "odyle-update",
+        "world-boss-list",
+        "server-battle",
+        "direct-damage",
+        "periodic-damage",
+        "party",
+        "party-leave-world",
+        "party-leave-instance",
+        "entity-properties",
+        "skill-confirmation",
+        "cooldown-remaining",
+        "spawn",
+        "entity-spawn",
+        "bundle",
+        "clock",
+        "map-load",
+        "self-identity",
+        "identity",
+        "player-spawn",
+        "stats-changed",
+        "all-stats",
+        "skill-use",
+        "combo-available",
+        "combo-unavailable",
+        "effect-added",
+        "effect-changed",
+        "effect-removed",
+        "ownership",
+        "life",
+        "skill-levels",
+        "skill-level",
+        "skill-forms",
+        "npc-dialog-opened",
+        "npc-dialog-closed"
+      ],
+      "type": "string"
+    },
+    "MessageDirection": {
+      "enum": ["server-to-client"],
+      "type": "string"
+    },
+    "OpcodeDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/MessageDirection"
+        },
+        "name": {
+          "type": "string"
+        },
+        "opcode": {
+          "format": "uint16",
+          "maximum": 65535,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "support": {
+          "$ref": "#/$defs/OpcodeSupport"
+        }
+      },
+      "required": ["opcode", "name", "direction", "support"],
+      "type": "object"
+    },
+    "OpcodeSupport": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "decoder": {
+              "$ref": "#/$defs/DecoderKind"
+            },
+            "kind": {
+              "const": "supported",
+              "type": "string"
+            }
+          },
+          "required": ["kind", "decoder"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "decoder": {
+              "$ref": "#/$defs/DecoderKind"
+            },
+            "kind": {
+              "const": "partial",
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": ["kind", "decoder", "reason"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "unsupported",
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": ["kind", "reason"],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$id": "urn:aurion:OpcodeTable:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clientBuild": {
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "messages": {
+      "items": {
+        "$ref": "#/$defs/OpcodeDefinition"
+      },
+      "type": "array"
+    },
+    "schemaVersion": {
+      "format": "uint8",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": ["schemaVersion", "clientBuild", "messages"],
+  "title": "OpcodeTable",
+  "type": "object"
+}

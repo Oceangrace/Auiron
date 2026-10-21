@@ -1,0 +1,71 @@
+{
+  "catalog": {
+    "directory": "catalog/v30",
+    "clientBuild": 30,
+    "manifest": "manifest.json",
+    "player": "player.json",
+    "enemy": "enemies.json",
+    "zones": "zones.json",
+    "sourceLocale": "en",
+    "npcs": "npcs.json",
+    "runtime": "runtime.json",
+    "skillNames": "skill-names.json"
+  },
+  "localization": {
+    "defaultLocale": "en",
+    "fallbackLocale": "en",
+    "directory": "locales",
+    "bundled": [
+      {
+        "id": "ru",
+        "label": "Русский",
+        "ui": "locales/ru/ui.json",
+        "catalog": "catalog/v30/translations/ru.json"
+      },
+      {
+        "id": "en",
+        "label": "English",
+        "ui": "locales/en/ui.json",
+        "catalog": "catalog/v30/translations/en.json"
+      }
+    ],
+    "package": {
+      "manifest": "manifest.json",
+      "messages": "ui.json",
+      "catalog": "catalog.json"
+    }
+  },
+  "resources": {
+    "trayIcon": "src-tauri/icons/icon.png"
+  },
+  "schemas": {
+    "directory": "data/schema",
+    "application": "application.schema.json",
+    "workspace": "interface-workspace.schema.json",
+    "document": "interface-document.schema.json",
+    "triggers": "trigger-group.schema.json",
+    "formula": "formula-definition.schema.json",
+    "opcodes": "opcodes.schema.json",
+    "npcCatalog": "npc-catalog.schema.json",
+    "runtimeCatalog": "runtime-catalog.schema.json",
+    "journal": "combat-journal.schema.json",
+    "skillNames": "skill-names.schema.json"
+  },
+  "storage": {
+    "preferences": "preferences.json",
+    "profiles": "profiles",
+    "journal": "combat-journal.json"
+  },
+  "protocol": {
+    "table": "protocol/v30/opcodes.json",
+    "capture": {
+      "processName": "AION2.exe",
+      "library": "System32/Npcap/wpcap.dll",
+      "refreshMs": 2000,
+      "pollMs": 20,
+      "publishMs": 100,
+      "staleMs": 5000
+    },
+    "combatIdleMs": 6000
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "clientBuild": 30,
+  "messages": [
+    {
+      "opcode": 65535,
+      "name": "bundle",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "bundle"
+      }
+    },
+    {
+      "opcode": 13824,
+      "name": "clock",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "clock"
+      }
+    },
+    {
+      "opcode": 13857,
+      "name": "map-load",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "map-load"
+      }
+    },
+    {
+      "opcode": 13875,
+      "name": "self-identity",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "self-identity"
+      }
+    },
+    {
+      "opcode": 13888,
+      "name": "entity-spawn",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "entity-spawn"
+      }
+    },
+    {
+      "opcode": 13889,
+      "name": "spawn",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "spawn"
+      }
+    },
+    {
+      "opcode": 13890,
+      "name": "life",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "life"
+      }
+    },
+    {
+      "opcode": 13892,
+      "name": "identity",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "identity"
+      }
+    },
+    {
+      "opcode": 13893,
+      "name": "player-spawn",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "player-spawn",
+        "reason": "Known identity/effect layouts and unique full-character profile only (character ID, ascending typed attributes including 206/208/551, level); missing or ambiguous profile does not establish a character ID."
+      }
+    },
+    {
+      "opcode": 13897,
+      "name": "all-stats",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "all-stats"
+      }
+    },
+    {
+      "opcode": 13898,
+      "name": "stats-changed",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "stats-changed"
+      }
+    },
+    {
+      "opcode": 14338,
+      "name": "skill-use",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "skill-use"
+      }
+    },
+    {
+      "opcode": 14340,
+      "name": "direct-damage",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "direct-damage",
+        "reason": "Strict record layout verified on three recordings; unknown switch or extension bits preserve participants without a guessed value. Life-steal and protection lists are kept without inferred healing or absorption."
+      }
+    },
+    {
+      "opcode": 14341,
+      "name": "periodic-damage",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "periodic-damage",
+        "reason": "Verified HP damage, reflected damage and healing kinds; periodic heal ticks use the tick field, not the remaining pool. Kind 9 (heal pool or repeated effect amount) and other kinds remain unsupported."
+      }
+    },
+    {
+      "opcode": 14360,
+      "name": "combo-available",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "combo-available"
+      }
+    },
+    {
+      "opcode": 14364,
+      "name": "charge-started",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "charge-started",
+        "reason": "Verified shape 1 with target marker 2 and ending 1. Duration uses the final SkillCharge stage from build 30, not the opaque trailing scalar. Released stage IDs end the matching preparation. Unknown skill charge data remains unknown; cancellation is not decoded."
+      }
+    },
+    {
+      "opcode": 14361,
+      "name": "combo-unavailable",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "combo-unavailable"
+      }
+    },
+    {
+      "opcode": 14378,
+      "name": "effect-added",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "effect-added"
+      }
+    },
+    {
+      "opcode": 14379,
+      "name": "effect-changed",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "effect-changed"
+      }
+    },
+    {
+      "opcode": 14380,
+      "name": "effect-removed",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "effect-removed"
+      }
+    },
+    {
+      "opcode": 36100,
+      "name": "ownership",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "ownership",
+        "reason": "Attribution actor and optional validated name/server. Ownership is established only for a catalog-confirmed player summon; ordinary monster loot does not imply pet ownership."
+      }
+    },
+    {
+      "opcode": 37403,
+      "name": "health-update",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "health-pair",
+        "reason": "Current and maximum HP prefix only. Remaining fields are not identified as MP."
+      }
+    },
+    {
+      "opcode": 38658,
+      "name": "party",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "party",
+        "reason": "Roster verified on real party traffic, including profile server fields differing from the server encoded in the character ID. Entity links use the full character ID when observed; fallback requires exact name and server, never name alone."
+      }
+    },
+    {
+      "opcode": 36096,
+      "name": "entity-properties",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "entity-properties",
+        "reason": "Known HP and MP property fields only; unknown flags and layouts are rejected."
+      }
+    },
+    {
+      "opcode": 14337,
+      "name": "skill-confirmation",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "skill-confirmation",
+        "reason": "Only the zero-status header is confirmed. Other status codes remain unsupported."
+      }
+    },
+    {
+      "opcode": 14407,
+      "name": "cooldown-remaining",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "cooldown-remaining",
+        "reason": "One group and relative remaining value. Other layouts and initial learned-skill readiness are not established."
+      }
+    },
+    {
+      "opcode": 37395,
+      "name": "party-leave-world",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "party-leave-world"
+      }
+    },
+    {
+      "opcode": 38685,
+      "name": "party-leave-instance",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "supported",
+        "decoder": "party-leave-instance"
+      }
+    },
+    {
+      "opcode": 14339,
+      "name": "hit-notice",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "hit-notice",
+        "reason": "Participants and exact skill only; no damage value or cast-start meaning is inferred."
+      }
+    },
+    {
+      "opcode": 24832,
+      "name": "instance-timer",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "instance-timer",
+        "reason": "Map, opaque timer kind and epoch start/end only; kind semantics are not inferred."
+      }
+    },
+    {
+      "opcode": 24843,
+      "name": "odyle-list",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "odyle-list",
+        "reason": "Energy entry identified by slot one and a following same-key slot two; other entries are not exposed."
+      }
+    },
+    {
+      "opcode": 24844,
+      "name": "odyle-update",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "odyle-update",
+        "reason": "Known entry value masks only; missing basic or charged value means zero according to the reference layout."
+      }
+    },
+    {
+      "opcode": 37121,
+      "name": "world-boss-list",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "world-boss-list",
+        "reason": "Home-map header only; ambiguous optional timestamp layouts are rejected. Zero time is unknown; map IDs are not NPC IDs."
+      }
+    },
+    {
+      "opcode": 36129,
+      "name": "server-battle",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "server-battle",
+        "reason": "Exact flag layout and optional deadline only; this entity flag is separate from inferred local combat."
+      }
+    },
+    {
+      "opcode": 14342,
+      "name": "entity-scope",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "unsupported",
+        "reason": "The reference calls this party scope, but local records also name NPCs. Membership semantics and payload remain unverified."
+      }
+    },
+    {
+      "opcode": 13859,
+      "name": "teleport-hint",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "unsupported",
+        "reason": "Reference detects a local teleport prefix, but position layout and distinction from in-map relocation remain unverified. Map-load drives zone state."
+      }
+    },
+    {
+      "opcode": 20736,
+      "name": "skill-levels",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "skill-levels",
+        "reason": "Own learned skills with level and base level, sent on entering the world and verified against the official character page. The bonus byte and the eight-byte block are opaque; changes between lists are not observed."
+      }
+    },
+    {
+      "opcode": 14355,
+      "name": "skill-level",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "skill-level",
+        "reason": "One own skill with level and base level, sent on login and after each level change; verified by raising and resetting one skill. Entries other than a single repeated skill are rejected; the trailing code and four-byte block are opaque."
+      }
+    },
+    {
+      "opcode": 14592,
+      "name": "skill-forms",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "skill-forms",
+        "reason": "Own skills with form slots and the selected forms, sent on entering the world. Form changes in the game are not recorded yet."
+      }
+    },
+    {
+      "opcode": 14345,
+      "name": "cast-started",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "cast-started",
+        "reason": "Verified preparation header and duration only. Ending byte 2 is kept opaque; shape 2 carries a power scalar. Unknown shapes are rejected; no interruption event is inferred from timeout or control effects."
+      }
+    },
+    {
+      "opcode": 14388,
+      "name": "target-selected",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "target-selected",
+        "reason": "Local selected target with three zero prefix bytes and one entity varint; zero clears selection. Verified by repeated TAB/Escape without own attacks on 18 October. Other headers and suffixes are rejected; other actors target messages are not interpreted as local selection."
+      }
+    },
+    {
+      "opcode": 57921,
+      "name": "npc-dialog-opened",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "npc-dialog-opened",
+        "reason": "Two zero bytes, u32 NPC entity, u64 dialog deadline (server time plus 300000 ms, kept opaque). Verified on 9 of 9 merchant F/Escape cycles on 18 October; quest, teleport and other NPC dialogs are not recorded yet."
+      }
+    },
+    {
+      "opcode": 57923,
+      "name": "npc-dialog-closed",
+      "direction": "server-to-client",
+      "support": {
+        "kind": "partial",
+        "decoder": "npc-dialog-closed",
+        "reason": "Two zero bytes and the u32 NPC entity of the open dialog. Verified on 9 of 9 merchant cycles; other headers and suffixes are rejected."
+      }
+    }
+  ]
+}

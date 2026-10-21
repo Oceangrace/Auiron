@@ -1,0 +1,16 @@
+export enum FontFamily {
+  Lora = 'lora',
+  Mono = 'mono',
+  Sans = 'sans',
+  Inter = 'inter',
+  Roboto = 'roboto',
+  OpenSans = 'open-sans',
+  NotoSans = 'noto-sans',
+  SourceSans = 'source-sans-3',
+  UbuntuSans = 'ubuntu-sans',
+  Montserrat = 'montserrat',
+  RobotoCondensed = 'roboto-condensed',
+  Oswald = 'oswald',
+  IbmPlexSans = 'ibm-plex-sans',
+  RobotoMono = 'roboto-mono',
+}

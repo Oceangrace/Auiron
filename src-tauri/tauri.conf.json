@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Aurion",
+  "version": "0.1.0",
+  "identifier": "aurion",
+  "build": {
+    "beforeDevCommand": "npm run dev:frontend",
+    "beforeBuildCommand": "npm run build:frontend",
+    "devUrl": "http://127.0.0.1:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "editor",
+        "title": "Aurion — Редактор интерфейсов",
+        "url": "index.html?surface=editor",
+        "create": false,
+        "visible": true,
+        "decorations": false,
+        "backgroundColor": "#00000000",
+        "resizable": false,
+        "focus": true,
+        "focusable": true,
+        "alwaysOnTop": false,
+        "transparent": true,
+        "shadow": false,
+        "maximizable": false,
+        "minimizable": true,
+        "skipTaskbar": false,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://game-icon.localhost; font-src 'self'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost; frame-src 'none'; object-src 'none'; base-uri 'none'",
+      "devCsp": "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://game-icon.localhost; font-src 'self'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost http://127.0.0.1:1420 ws://127.0.0.1:1420; frame-src 'none'; object-src 'none'; base-uri 'none'",
+      "capabilities": [
+        {
+          "identifier": "interface-events",
+          "windows": ["editor"],
+          "permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+        }
+      ]
+    }
+  },
+  "bundle": {
+    "active": false,
+    "icon": ["icons/icon.ico", "icons/icon.png"],
+    "resources": {
+      "../LICENSE": "licenses/Aurion.txt",
+      "../src/renderer/fonts/ibm-plex-sans/LICENSE.txt": "licenses/fonts/IBM-Plex-Sans.txt",
+      "../src/renderer/fonts/inter/LICENSE.txt": "licenses/fonts/Inter.txt",
+      "../src/renderer/fonts/lora/LORA-LICENSE.txt": "licenses/fonts/Lora.txt",
+      "../src/renderer/fonts/montserrat/LICENSE.txt": "licenses/fonts/Montserrat.txt",
+      "../src/renderer/fonts/noto-sans/LICENSE.txt": "licenses/fonts/Noto-Sans.txt",
+      "../src/renderer/fonts/open-sans/LICENSE.txt": "licenses/fonts/Open-Sans.txt",
+      "../src/renderer/fonts/oswald/LICENSE.txt": "licenses/fonts/Oswald.txt",
+      "../src/renderer/fonts/roboto/LICENSE.txt": "licenses/fonts/Roboto.txt",
+      "../src/renderer/fonts/roboto-condensed/LICENSE.txt": "licenses/fonts/Roboto-Condensed.txt",
+      "../src/renderer/fonts/roboto-mono/LICENSE.txt": "licenses/fonts/Roboto-Mono.txt",
+      "../src/renderer/fonts/source-sans-3/LICENSE.txt": "licenses/fonts/Source-Sans-3.txt",
+      "../src/renderer/fonts/ubuntu-sans/LICENSE.txt": "licenses/fonts/Ubuntu-Sans.txt"
+    }
+  }
+}

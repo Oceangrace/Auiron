@@ -1,0 +1,57 @@
+{
+  "name": "aurion",
+  "version": "0.1.0",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "description": "Customizable HUD editor and combat journal for AION 2.",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "npm": ">=11.0.0 <12"
+  },
+  "scripts": {
+    "dev": "tauri dev",
+    "dev:frontend": "vite",
+    "start": "npm run build:frontend && cargo run --manifest-path src-tauri/Cargo.toml --features custom-protocol",
+    "build": "tauri build --debug --no-bundle",
+    "build:frontend": "vite build",
+    "build:release": "tauri build --no-bundle",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "lint:code": "eslint . --max-warnings 0",
+    "lint:format": "prettier . --check",
+    "lint:rust": "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check && cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --all-features -- -D warnings",
+    "lint": "npm run lint:code && npm run lint:format && npm run build:frontend && npm run lint:rust",
+    "fix": "eslint . --fix && npm run format",
+    "format": "prettier . --write && cargo fmt --manifest-path src-tauri/Cargo.toml",
+    "check": "npm run catalog:check && npm run typecheck && npm run lint:code && npm run lint:format && npm run build && npm run lint:rust && npm run schema:check",
+    "graph": "node checks/graph.mjs",
+    "schema": "cargo run --manifest-path src-tauri/Cargo.toml --features schema --bin aurion-schema && prettier data/schema --write",
+    "schema:check": "cargo run --manifest-path src-tauri/Cargo.toml --features schema --bin aurion-schema -- --check",
+    "catalog:check": "node checks/catalog-manifest.mjs && node checks/game-icon-audit.mjs",
+    "catalog:manifest": "node checks/catalog-manifest.mjs --write",
+    "icons:cdn-check": "node checks/icons-cdn-check.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@intlify/devtools-types": "11.1.12",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@tauri-apps/cli": "2.12.2",
+    "@types/node": "24.19.2",
+    "@vitejs/plugin-vue": "6.0.10",
+    "eslint": "10.12.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-vue": "10.11.1",
+    "globals": "17.13.0",
+    "prettier": "^3.9.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.2",
+    "vite": "8.3.4",
+    "vue-eslint-parser": "10.4.1",
+    "vue-tsc": "3.3.13"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.4",
+    "vue": "3.5.44",
+    "vue-i18n": "11.1.12"
+  }
+}

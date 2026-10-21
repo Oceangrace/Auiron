@@ -1,0 +1,26 @@
+name: Feature request (English)
+description: Suggest an improvement to Aurion or the example HUD.
+title: '[Feature] '
+body:
+  - type: markdown
+    attributes:
+      value: Please search existing issues first and describe one idea per request.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to improve?
+      description: Describe the task or difficulty behind your suggestion.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your suggestion
+      description: Explain how you would like it to work.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Examples or alternatives (optional)
+      description: Add a sketch, screenshot, reference, or your current workaround.

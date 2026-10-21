@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "clientBuild": 30,
+  "catalogVersion": "build30-normalized-v2",
+  "files": {
+    "enemies.json": {
+      "sha256": "7e22c54fd92f53eb693a76ece2af541ca19fc2a4ccb8614865797ed4ed7d96b8",
+      "bytes": 3293643
+    },
+    "npcs.json": {
+      "sha256": "09b75a15f5e305714aae48c37b714005a3f8c4753fd39f6d965bf53135373256",
+      "bytes": 126964
+    },
+    "player.json": {
+      "sha256": "a1dc8406721d53d19c18d9cfd318144f3c672f7f1d1013ed8cbdb140a27d2fd2",
+      "bytes": 876236
+    },
+    "runtime.json": {
+      "sha256": "1a3d150836f4e1fdd894d0b2cbdda485ceba1758cedddb9229b6ac3070a63703",
+      "bytes": 6385131
+    },
+    "skill-names.json": {
+      "sha256": "92bf2c767a24ce2ba38d2b8bfb6b871ad58672403c17cca6d72567ca9df22401",
+      "bytes": 462888
+    },
+    "translations/en.json": {
+      "sha256": "6b82077a6ed57a7a74eec39885c2ea4d08cf9ab5c4383c0388ba8290caea696a",
+      "bytes": 3637856
+    },
+    "translations/ru.json": {
+      "sha256": "9f436b19792661ad64db9a9af8ea32200cf57482e2971d3a235edb934a331e86",
+      "bytes": 6513864
+    },
+    "zones.json": {
+      "sha256": "c9d01b7eadd71826ddd713da67d68c0439ba5be1860783d3988dc75cea349573",
+      "bytes": 23502
+    }
+  }
+}

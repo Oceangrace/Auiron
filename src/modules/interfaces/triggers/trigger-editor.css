@@ -1,0 +1,48 @@
+.trigger-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.trigger-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.trigger-options {
+  align-self: flex-start;
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--prism-radius-popup);
+  background: var(--prism-field);
+}
+.trigger-options .ui-button {
+  min-height: 26px;
+  padding: 0 8px;
+  border-color: transparent;
+  background: transparent;
+  font-size: 12px;
+}
+.trigger-options .ui-button.is-active {
+  border-color: var(--prism-border);
+  background: var(--prism-selected);
+}
+.trigger-actions {
+  gap: 8px;
+}
+
+.duration-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.duration-input > input {
+  width: 92px;
+}
+.duration-input > span {
+  color: var(--prism-muted);
+}
+.trigger-step > .ui-field {
+  grid-template-columns: 120px minmax(0, 1fr);
+}

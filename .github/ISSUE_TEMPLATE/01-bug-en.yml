@@ -1,0 +1,71 @@
+name: Bug report (English)
+description: Report a problem with Aurion or the example HUD.
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search existing issues first and describe one problem per report.
+        Reports about the example Cleric HUD are welcome, even if you are unsure of the cause.
+  - type: input
+    id: version
+    attributes:
+      label: Aurion version
+      description: For a local build, include its commit or build date if known.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen?
+      options:
+        - Example Cleric HUD
+        - Custom or imported HUD
+        - Party frames
+        - Combat journal or DPS/HPS
+        - Editor, import, or export
+        - Boss timers or alerts
+        - Startup or game data capture
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: Describe what is missing or incorrect. Include any exact error message.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we repeat it?
+      description: List the steps. If it happens inconsistently, describe what you were doing.
+      placeholder: |
+        1. Launch Aurion and enter the game.
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Setup and context
+      description: |
+        Windows version; profile name and whether it was modified; class or skill if relevant.
+        For layout issues: screen resolution and HUD scale. Was the editor or simulator open?
+        Did this follow a restart, teleport, or party change?
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots, video, or logs (optional)
+      description: |
+        Attach files or paste a relevant log excerpt here. Remove personal information first.
+        Do not attach packet captures unless requested.

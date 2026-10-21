@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54" height="16" viewBox="0 0 54 16" role="img" aria-labelledby="title">
+  <title id="title">Aurion</title>
+  <defs>
+    <linearGradient id="wordmark" x1="0" y1="0" x2="54" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b3eee5"/>
+      <stop offset="0.45" stop-color="#42bbb9"/>
+      <stop offset="1" stop-color="#00a7c4"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="16" fill="url(#wordmark)" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">Aurion</text>
+</svg>

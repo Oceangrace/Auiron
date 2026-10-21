@@ -1,0 +1,2840 @@
+{
+  "$defs": {
+    "AnchorMode": {
+      "enum": ["start", "center", "end", "stretch"],
+      "type": "string"
+    },
+    "AnimationChange": {
+      "enum": ["any", "increase", "decrease"],
+      "type": "string"
+    },
+    "AnimationWhen": {
+      "enum": ["always", "effect-active", "remaining", "elapsed", "on-show", "value-changed"],
+      "type": "string"
+    },
+    "BarIconAnchor": {
+      "enum": ["left", "center", "right"],
+      "type": "string"
+    },
+    "BarTexture": {
+      "enum": ["solid", "grid", "diagonal"],
+      "type": "string"
+    },
+    "BorderStyle": {
+      "enum": ["solid", "dashed", "dotted"],
+      "type": "string"
+    },
+    "BossEvent": {
+      "enum": ["before-spawn", "spawned", "alive", "unknown"],
+      "type": "string"
+    },
+    "BossTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "beforeSeconds": {
+          "format": "double",
+          "maximum": 86400,
+          "minimum": 0,
+          "type": "number"
+        },
+        "bossId": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "durationMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "event": {
+          "$ref": "#/$defs/BossEvent"
+        }
+      },
+      "required": ["bossId", "event", "beforeSeconds", "durationMs"],
+      "type": "object"
+    },
+    "CatalogScope": {
+      "enum": ["skills", "effects", "enemies", "enemy_skills", "enemy_effects"],
+      "type": "string"
+    },
+    "CatalogSelection": {
+      "additionalProperties": false,
+      "properties": {
+        "catalogVersion": {
+          "type": "string"
+        },
+        "choiceKey": {
+          "type": "string"
+        },
+        "contextKey": {
+          "type": ["string", "null"]
+        },
+        "entryKey": {
+          "type": "string"
+        },
+        "scope": {
+          "$ref": "#/$defs/CatalogScope"
+        }
+      },
+      "required": ["catalogVersion", "scope", "entryKey", "choiceKey"],
+      "type": "object"
+    },
+    "ClassColorSource": {
+      "enum": ["none", "player", "target", "target-target", "entity", "row"],
+      "type": "string"
+    },
+    "ClassColorTarget": {
+      "enum": ["fill", "background", "text", "border"],
+      "type": "string"
+    },
+    "CombatDirection": {
+      "enum": ["outgoing", "incoming"],
+      "type": "string"
+    },
+    "CombatMetric": {
+      "enum": [
+        "additionalHitEvents",
+        "receivedHits",
+        "regenerationHealing",
+        "firstEventAt",
+        "lastEventAt",
+        "damage",
+        "directDamage",
+        "periodicDamage",
+        "healing",
+        "periodicHealing",
+        "damageTaken",
+        "healingTaken",
+        "hits",
+        "directHits",
+        "periodicHits",
+        "healHits",
+        "criticalHits",
+        "backHits",
+        "frontalHits",
+        "perfectHits",
+        "doubleHits",
+        "parryHits",
+        "shieldBlockHits",
+        "ironWallHits",
+        "regenerationHits",
+        "perfectBlockHits",
+        "misses",
+        "resists",
+        "additionalHits",
+        "additionalDamage",
+        "deaths",
+        "dps",
+        "hps",
+        "criticalPercent",
+        "backPercent",
+        "frontalPercent",
+        "perfectPercent",
+        "doublePercent",
+        "parryPercent",
+        "shieldBlockPercent",
+        "missPercent",
+        "resistPercent",
+        "averageHit",
+        "minHit",
+        "maxHit",
+        "duration"
+      ],
+      "type": "string"
+    },
+    "CombatScope": {
+      "enum": ["player", "party", "entity", "observed"],
+      "type": "string"
+    },
+    "CombatTableView": {
+      "additionalProperties": false,
+      "properties": {
+        "actorId": {
+          "type": ["string", "null"]
+        },
+        "dimension": {
+          "$ref": "#/$defs/TableDimension"
+        },
+        "direction": {
+          "$ref": "#/$defs/CombatDirection"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "metric": {
+          "$ref": "#/$defs/CombatMetric"
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "$ref": "#/$defs/CombatScope"
+        },
+        "targetId": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["id", "name", "metric", "direction", "dimension", "scope"],
+      "type": "object"
+    },
+    "ComparisonOperator": {
+      "enum": ["equal", "not_equal", "less", "less_equal", "greater", "greater_equal"],
+      "type": "string"
+    },
+    "ConditionAnimation": {
+      "additionalProperties": false,
+      "properties": {
+        "change": {
+          "$ref": "#/$defs/AnimationChange"
+        },
+        "color": {
+          "$ref": "#/$defs/HexColor"
+        },
+        "durationMs": {
+          "format": "double",
+          "maximum": 60000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "intensity": {
+          "format": "double",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "path": {
+          "maxLength": 128,
+          "type": "string"
+        },
+        "periodMs": {
+          "format": "double",
+          "maximum": 10000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "preset": {
+          "$ref": "#/$defs/WidgetAnimation"
+        },
+        "thresholdSeconds": {
+          "format": "double",
+          "maximum": 3600,
+          "minimum": 0,
+          "type": "number"
+        },
+        "when": {
+          "$ref": "#/$defs/AnimationWhen"
+        }
+      },
+      "required": [
+        "preset",
+        "when",
+        "color",
+        "periodMs",
+        "intensity",
+        "thresholdSeconds",
+        "durationMs",
+        "path",
+        "change"
+      ],
+      "type": "object"
+    },
+    "ConditionChange": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "text",
+              "type": "string"
+            },
+            "value": {
+              "maxLength": 2048,
+              "type": "string"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "icon.label",
+              "type": "string"
+            },
+            "value": {
+              "maxLength": 2048,
+              "type": "string"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "color",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "fill_color",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "background",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "border_color",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "text.outline-color",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "icon.glow-color",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/HexColor"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "opacity",
+              "type": "string"
+            },
+            "value": {
+              "format": "double",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "font_size",
+              "type": "string"
+            },
+            "value": {
+              "format": "double",
+              "maximum": 256,
+              "minimum": 6,
+              "type": "number"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "glow",
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "desaturate",
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "icon.swipe",
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "bar.spark",
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "bar.inverse",
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "animation",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/WidgetAnimation"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "text.weight",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/FontWeight"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "text.outline",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/OutlineStyle"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "icon.glow",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/GlowMode"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "bar.gradient",
+              "type": "string"
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/HexColor"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": ["property"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "sound",
+              "type": "string"
+            },
+            "speechText": {
+              "default": "",
+              "maxLength": 160,
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/SoundCue"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "property": {
+              "const": "animation-config",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/ConditionAnimation"
+            }
+          },
+          "required": ["property", "value"],
+          "type": "object"
+        }
+      ]
+    },
+    "ConditionCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/ConditionField"
+        },
+        "operator": {
+          "$ref": "#/$defs/ComparisonOperator"
+        },
+        "path": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "textValue": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "value": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": ["field", "operator", "value"],
+      "type": "object"
+    },
+    "ConditionField": {
+      "enum": ["active", "remaining", "stacks", "progress", "field"],
+      "type": "string"
+    },
+    "ConditionMode": {
+      "enum": ["all", "any"],
+      "type": "string"
+    },
+    "Direction": {
+      "enum": ["right", "left", "up", "down"],
+      "type": "string"
+    },
+    "EffectFilter": {
+      "enum": ["any", "buff", "debuff"],
+      "type": "string"
+    },
+    "EffectOrigin": {
+      "enum": ["any", "mine", "enemy"],
+      "type": "string"
+    },
+    "EffectPresence": {
+      "enum": ["present", "missing"],
+      "type": "string"
+    },
+    "EffectTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "cloneDirection": {
+          "$ref": "#/$defs/Direction"
+        },
+        "clones": {
+          "type": "boolean"
+        },
+        "effects": {
+          "items": {
+            "$ref": "#/$defs/GameId"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "filter": {
+          "$ref": "#/$defs/EffectFilter"
+        },
+        "member": {
+          "maxLength": 64,
+          "type": "string"
+        },
+        "minStacks": {
+          "format": "double",
+          "maximum": 999,
+          "minimum": 1,
+          "type": "number"
+        },
+        "origin": {
+          "$ref": "#/$defs/EffectOrigin"
+        },
+        "presence": {
+          "$ref": "#/$defs/EffectPresence"
+        },
+        "remainingBelowSeconds": {
+          "format": "double",
+          "maximum": 3600,
+          "minimum": 0,
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/TriggerUnit"
+        }
+      },
+      "required": [
+        "unit",
+        "member",
+        "filter",
+        "effects",
+        "presence",
+        "origin",
+        "minStacks",
+        "remainingBelowSeconds",
+        "clones",
+        "cloneDirection"
+      ],
+      "type": "object"
+    },
+    "EncounterSchedule": {
+      "additionalProperties": false,
+      "properties": {
+        "bossOnly": {
+          "type": "boolean"
+        },
+        "firstMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 0,
+          "type": "number"
+        },
+        "intervalMs": {
+          "format": "double",
+          "maximum": 600000,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": ["bossOnly", "firstMs", "intervalMs"],
+      "type": "object"
+    },
+    "EventParticipant": {
+      "enum": ["any", "player", "party", "group", "target", "entity"],
+      "type": "string"
+    },
+    "EventTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "delayMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 0,
+          "type": ["number", "null"]
+        },
+        "durationMs": {
+          "format": "double",
+          "maximum": 3600000,
+          "minimum": 100,
+          "type": "number"
+        },
+        "effectId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event": {
+          "$ref": "#/$defs/GameEventType"
+        },
+        "minValue": {
+          "format": "double",
+          "maximum": 1000000000000.0,
+          "minimum": 0,
+          "type": ["number", "null"]
+        },
+        "recipient": {
+          "$ref": "#/$defs/EventParticipant"
+        },
+        "schedule": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EncounterSchedule"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "skillId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/EventParticipant"
+        },
+        "sourceActorKey": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": ["string", "null"]
+        },
+        "sourceNpcId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GameId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "useWidgetSkill": {
+          "type": ["boolean", "null"]
+        }
+      },
+      "required": ["event", "source", "recipient", "durationMs"],
+      "type": "object"
+    },
+    "FontFamily": {
+      "enum": [
+        "lora",
+        "mono",
+        "sans",
+        "inter",
+        "roboto",
+        "open-sans",
+        "noto-sans",
+        "source-sans-3",
+        "ubuntu-sans",
+        "montserrat",
+        "roboto-condensed",
+        "oswald",
+        "ibm-plex-sans",
+        "roboto-mono"
+      ],
+      "type": "string"
+    },
+    "FontWeight": {
+      "enum": ["normal", "bold"],
+      "type": "string"
+    },
+    "FormulaConstant": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "FormulaDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "expression": {
+          "$ref": "#/$defs/FormulaExpression"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/FormulaValueKind"
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["id", "name", "kind", "expression"],
+      "type": "object"
+    },
+    "FormulaExpression": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "constant",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/FormulaConstant"
+            }
+          },
+          "required": ["kind", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "field",
+              "type": "string"
+            },
+            "path": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": ["kind", "path"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "formulaId": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "formula",
+              "type": "string"
+            }
+          },
+          "required": ["kind", "formulaId"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "add"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "subtract"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "multiply"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "divide"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "minimum"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "maximum"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "round"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "absolute"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "clamp"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 3,
+                    "minItems": 3
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "not-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "less"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "less-or-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "greater"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "greater-or-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "all"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "any"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "not"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "coalesce"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "kind": {
+              "const": "operation",
+              "type": "string"
+            },
+            "operands": {
+              "items": {
+                "$ref": "#/$defs/FormulaExpression"
+              },
+              "maxItems": 8,
+              "minItems": 1,
+              "type": "array"
+            },
+            "operation": {
+              "$ref": "#/$defs/FormulaOperation"
+            }
+          },
+          "required": ["kind", "operation", "operands"],
+          "type": "object"
+        }
+      ]
+    },
+    "FormulaOperation": {
+      "enum": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide",
+        "minimum",
+        "maximum",
+        "round",
+        "absolute",
+        "clamp",
+        "equal",
+        "not-equal",
+        "less",
+        "less-or-equal",
+        "greater",
+        "greater-or-equal",
+        "all",
+        "any",
+        "not",
+        "coalesce"
+      ],
+      "type": "string"
+    },
+    "FormulaValueKind": {
+      "enum": ["number", "boolean", "percent", "duration"],
+      "type": "string"
+    },
+    "GameEventType": {
+      "enum": [
+        "cast-started",
+        "hit-landed",
+        "server-battle-changed",
+        "combat-started",
+        "combat-ended",
+        "encounter-started",
+        "encounter-ended",
+        "healing",
+        "miss",
+        "resist",
+        "death",
+        "despawn",
+        "map-changed",
+        "damage",
+        "health-changed",
+        "effect-applied",
+        "effect-updated",
+        "effect-removed",
+        "skill-used",
+        "combo-available",
+        "combo-unavailable"
+      ],
+      "type": "string"
+    },
+    "GameId": {
+      "format": "uint32",
+      "maximum": 4294967295,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "GlowMode": {
+      "enum": ["none", "proc", "pixel"],
+      "type": "string"
+    },
+    "GroupButtonDisplay": {
+      "enum": ["text", "icon", "both"],
+      "type": "string"
+    },
+    "GroupButtonPlacement": {
+      "enum": ["left", "right"],
+      "type": "string"
+    },
+    "GroupDataBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "activeViewId": {
+          "type": ["string", "null"]
+        },
+        "actorId": {
+          "type": ["string", "null"]
+        },
+        "bossAlertMinutes": {
+          "default": [5, 3, 1],
+          "items": {
+            "format": "uint32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 3,
+          "type": "array"
+        },
+        "bossIds": {
+          "default": [],
+          "items": {
+            "format": "uint32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "maxItems": 48,
+          "type": "array"
+        },
+        "dimension": {
+          "$ref": "#/$defs/TableDimension"
+        },
+        "direction": {
+          "$ref": "#/$defs/CombatDirection"
+        },
+        "effects": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GroupEffectSettings"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "includeSummons": {
+          "type": "boolean"
+        },
+        "limit": {
+          "format": "uint32",
+          "maximum": 128,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "metric": {
+          "$ref": "#/$defs/CombatMetric"
+        },
+        "scope": {
+          "$ref": "#/$defs/CombatScope"
+        },
+        "showBreakdown": {
+          "type": "boolean"
+        },
+        "source": {
+          "$ref": "#/$defs/GroupDataSource"
+        },
+        "targetId": {
+          "type": ["string", "null"]
+        },
+        "views": {
+          "items": {
+            "$ref": "#/$defs/CombatTableView"
+          },
+          "maxItems": 16,
+          "type": "array"
+        }
+      },
+      "required": [
+        "views",
+        "showBreakdown",
+        "direction",
+        "dimension",
+        "includeSummons",
+        "scope",
+        "source",
+        "metric",
+        "limit"
+      ],
+      "type": "object"
+    },
+    "GroupDataSource": {
+      "enum": ["game", "effects", "preview", "party-members", "skill-history", "world-bosses"],
+      "type": "string"
+    },
+    "GroupEffectSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "$ref": "#/$defs/EffectFilter"
+        },
+        "iconSize": {
+          "format": "double",
+          "maximum": 256,
+          "minimum": 8,
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/TriggerUnit"
+        }
+      },
+      "required": ["unit", "filter", "iconSize"],
+      "type": "object"
+    },
+    "GroupFlow": {
+      "enum": ["row", "column", "grid", "timeline"],
+      "type": "string"
+    },
+    "GroupGrow": {
+      "enum": ["forward", "backward", "center", "end-start", "start-end"],
+      "type": "string"
+    },
+    "GroupHeaderAction": {
+      "enum": ["edit", "collapse", "cycle-metric", "select-metric", "close", "manage-panels"],
+      "type": "string"
+    },
+    "GroupHeaderButton": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/GroupHeaderAction"
+        },
+        "display": {
+          "$ref": "#/$defs/GroupButtonDisplay"
+        },
+        "icon": {
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 128,
+          "type": "string"
+        },
+        "placement": {
+          "$ref": "#/$defs/GroupButtonPlacement"
+        }
+      },
+      "required": ["id", "label", "display", "placement", "action", "icon"],
+      "type": "object"
+    },
+    "GroupSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "default": 4.0,
+          "format": "double",
+          "type": "number"
+        },
+        "fillEnabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "fillOpacity": {
+          "default": null,
+          "format": "double",
+          "type": ["number", "null"]
+        },
+        "flow": {
+          "$ref": "#/$defs/GroupFlow",
+          "default": "row"
+        },
+        "gap": {
+          "default": 8.0,
+          "format": "double",
+          "type": "number"
+        },
+        "grow": {
+          "$ref": "#/$defs/GroupGrow",
+          "default": "forward"
+        },
+        "headerAlignment": {
+          "$ref": "#/$defs/TextAlignment",
+          "default": "left"
+        },
+        "headerBackground": {
+          "default": "#141414",
+          "type": "string"
+        },
+        "headerColor": {
+          "default": "#d6b26e",
+          "type": "string"
+        },
+        "headerEnabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "headerFontSize": {
+          "default": 14.0,
+          "format": "double",
+          "type": "number"
+        },
+        "headerHeight": {
+          "default": 28.0,
+          "format": "double",
+          "type": "number"
+        },
+        "headerOpacity": {
+          "default": null,
+          "format": "double",
+          "type": ["number", "null"]
+        },
+        "headerText": {
+          "default": "",
+          "type": "string"
+        },
+        "limit": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "locked": {
+          "default": false,
+          "type": "boolean"
+        },
+        "motionMs": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "padding": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "scale": {
+          "default": 100.0,
+          "format": "double",
+          "maximum": 400,
+          "minimum": 25,
+          "type": "number"
+        },
+        "sort": {
+          "$ref": "#/$defs/GroupSort",
+          "default": "manual"
+        },
+        "spanSeconds": {
+          "default": 30.0,
+          "format": "double",
+          "type": "number"
+        },
+        "travel": {
+          "$ref": "#/$defs/Direction",
+          "default": "left"
+        }
+      },
+      "type": "object"
+    },
+    "GroupSort": {
+      "enum": ["manual", "remaining-asc", "remaining-desc"],
+      "type": "string"
+    },
+    "HealingPredictionTarget": {
+      "enum": ["player", "target", "entity"],
+      "type": "string"
+    },
+    "HexColor": {
+      "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$",
+      "type": "string"
+    },
+    "ImageFit": {
+      "enum": ["cover", "contain", "stretch"],
+      "type": "string"
+    },
+    "ImageSource": {
+      "enum": ["automatic", "skill", "effect", "custom"],
+      "type": "string"
+    },
+    "InterfaceDisplay": {
+      "additionalProperties": false,
+      "properties": {
+        "autoScale": {
+          "default": true,
+          "type": "boolean"
+        },
+        "baseHeight": {
+          "default": null,
+          "format": "uint32",
+          "maximum": 16384,
+          "minimum": 240,
+          "type": ["integer", "null"]
+        },
+        "baseWidth": {
+          "default": null,
+          "description": "Absent: positions are absolute screen pixels and only the manual scale applies.",
+          "format": "uint32",
+          "maximum": 16384,
+          "minimum": 320,
+          "type": ["integer", "null"]
+        },
+        "scale": {
+          "default": 100.0,
+          "format": "double",
+          "maximum": 400.0,
+          "minimum": 25.0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "InterfaceDocument": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "default": "",
+          "maxLength": 128,
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "maxLength": 2048,
+          "type": "string"
+        },
+        "display": {
+          "$ref": "#/$defs/InterfaceDisplay",
+          "default": {
+            "autoScale": true,
+            "baseHeight": null,
+            "baseWidth": null,
+            "scale": 100.0
+          }
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "formulas": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FormulaDefinition"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "imported": {
+          "default": false,
+          "type": "boolean"
+        },
+        "localization": {
+          "$ref": "#/$defs/InterfaceLocalization",
+          "default": {
+            "defaultLocale": "",
+            "translations": {}
+          }
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/WidgetNode"
+          },
+          "maxItems": 2000,
+          "type": "array"
+        },
+        "version": {
+          "default": "",
+          "maxLength": 64,
+          "type": "string"
+        }
+      },
+      "required": ["id", "name", "enabled", "roots"],
+      "type": "object"
+    },
+    "InterfaceLocalization": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultLocale": {
+          "default": "",
+          "type": "string"
+        },
+        "translations": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "default": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "LoadRules": {
+      "additionalProperties": false,
+      "properties": {
+        "dungeonIds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/GameId"
+          },
+          "maxItems": 512,
+          "type": "array"
+        },
+        "inCombat": {
+          "$ref": "#/$defs/LoadState",
+          "default": "any"
+        },
+        "inGroup": {
+          "$ref": "#/$defs/LoadState",
+          "default": "any"
+        },
+        "mapIds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/GameId"
+          },
+          "maxItems": 512,
+          "type": "array"
+        },
+        "npcIds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/GameId"
+          },
+          "maxItems": 512,
+          "type": "array"
+        },
+        "playerClass": {
+          "default": "",
+          "maxLength": 128,
+          "type": "string"
+        },
+        "zone": {
+          "default": "",
+          "maxLength": 256,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LoadState": {
+      "enum": ["any", "yes", "no"],
+      "type": "string"
+    },
+    "MotionKind": {
+      "enum": ["none", "fade", "grow", "slide-up", "slide-down", "slide-left", "slide-right"],
+      "type": "string"
+    },
+    "ObservationKind": {
+      "enum": [
+        "skill_used",
+        "skill_state",
+        "effect_present",
+        "cooldown",
+        "skill_ready",
+        "combo_available"
+      ],
+      "type": "string"
+    },
+    "OutlineStyle": {
+      "enum": ["none", "thin", "thick"],
+      "type": "string"
+    },
+    "ProgressSource": {
+      "enum": ["fixed", "trigger", "event", "field"],
+      "type": "string"
+    },
+    "SoundCue": {
+      "enum": [
+        "none",
+        "ping",
+        "chime",
+        "alert",
+        "low",
+        "bell",
+        "double-bell",
+        "crystal",
+        "harp",
+        "marimba",
+        "glass",
+        "drop",
+        "pop",
+        "click",
+        "knock",
+        "rise",
+        "fall",
+        "success",
+        "failure",
+        "ready",
+        "countdown",
+        "warning",
+        "siren",
+        "radar",
+        "sonar",
+        "horn",
+        "buzz",
+        "heartbeat",
+        "tick",
+        "speech"
+      ],
+      "type": "string"
+    },
+    "TableDimension": {
+      "enum": ["combatants", "skills", "targets"],
+      "type": "string"
+    },
+    "TextAlignment": {
+      "enum": ["left", "center", "right"],
+      "type": "string"
+    },
+    "TextAnchor": {
+      "enum": ["top", "middle", "bottom"],
+      "type": "string"
+    },
+    "TextPosition": {
+      "enum": [
+        "center",
+        "top-left",
+        "top",
+        "top-right",
+        "left",
+        "right",
+        "bottom-left",
+        "bottom",
+        "bottom-right",
+        "outside-left",
+        "outside-right"
+      ],
+      "type": "string"
+    },
+    "TriggerDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "actorKey": {
+          "type": ["string", "null"]
+        },
+        "displaySeconds": {
+          "format": "double",
+          "type": ["number", "null"]
+        },
+        "observation": {
+          "$ref": "#/$defs/ObservationKind"
+        },
+        "selection": {
+          "$ref": "#/$defs/CatalogSelection"
+        },
+        "subject": {
+          "$ref": "#/$defs/TriggerSubject"
+        }
+      },
+      "required": ["subject", "observation", "selection"],
+      "type": "object"
+    },
+    "TriggerGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "dataRuleId": {
+          "type": ["string", "null"]
+        },
+        "mode": {
+          "$ref": "#/$defs/ConditionMode"
+        },
+        "rules": {
+          "items": {
+            "$ref": "#/$defs/TriggerRule"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["mode", "rules"],
+      "type": "object"
+    },
+    "TriggerRule": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "boss",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/BossTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "value",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/ValueTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "effect",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/EffectTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 100,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "event",
+              "type": "string"
+            },
+            "observe": {
+              "type": "boolean"
+            },
+            "trigger": {
+              "$ref": "#/$defs/EventTrigger"
+            }
+          },
+          "required": ["kind", "id", "observe", "trigger"],
+          "type": "object"
+        }
+      ]
+    },
+    "TriggerSubject": {
+      "enum": ["self_player", "enemy"],
+      "type": "string"
+    },
+    "TriggerUnit": {
+      "enum": ["entity", "player", "target", "encounter", "party", "group", "member"],
+      "type": "string"
+    },
+    "ValueOperator": {
+      "enum": ["eq", "ne", "lt", "lte", "gt", "gte"],
+      "type": "string"
+    },
+    "ValueTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ValueOperator"
+        },
+        "path": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 128,
+          "type": "string"
+        }
+      },
+      "required": ["path", "operator", "value"],
+      "type": "object"
+    },
+    "WidgetAnchors": {
+      "additionalProperties": false,
+      "properties": {
+        "bottom": {
+          "format": "double",
+          "type": "number"
+        },
+        "heightPercent": {
+          "format": "double",
+          "type": ["number", "null"]
+        },
+        "horizontal": {
+          "$ref": "#/$defs/AnchorMode"
+        },
+        "right": {
+          "format": "double",
+          "type": "number"
+        },
+        "vertical": {
+          "$ref": "#/$defs/AnchorMode"
+        },
+        "widthPercent": {
+          "format": "double",
+          "type": ["number", "null"]
+        }
+      },
+      "required": ["horizontal", "vertical", "right", "bottom"],
+      "type": "object"
+    },
+    "WidgetAnimation": {
+      "enum": ["none", "pulse", "blink", "bounce", "glow", "border", "tint"],
+      "type": "string"
+    },
+    "WidgetAppearance": {
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "type": "string"
+        },
+        "borderColor": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "customImage": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "fontSize": {
+          "format": "double",
+          "type": "number"
+        },
+        "iconPath": {
+          "type": ["string", "null"]
+        },
+        "opacity": {
+          "format": "double",
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": ["text", "color", "background", "borderColor", "fontSize", "opacity"],
+      "type": "object"
+    },
+    "WidgetCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "changes": {
+          "items": {
+            "$ref": "#/$defs/ConditionChange"
+          },
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/ConditionCheck"
+          },
+          "type": "array"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "#/$defs/ConditionMode"
+        }
+      },
+      "required": ["id", "enabled", "mode", "checks", "changes"],
+      "type": "object"
+    },
+    "WidgetKind": {
+      "enum": ["icon", "text", "group", "bar", "dynamic_group"],
+      "type": "string"
+    },
+    "WidgetLayout": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "format": "double",
+          "maximum": 8192,
+          "minimum": 8,
+          "type": "number"
+        },
+        "width": {
+          "format": "double",
+          "maximum": 8192,
+          "minimum": 8,
+          "type": "number"
+        },
+        "x": {
+          "format": "double",
+          "maximum": 100000,
+          "minimum": -100000,
+          "type": "number"
+        },
+        "y": {
+          "format": "double",
+          "maximum": 100000,
+          "minimum": -100000,
+          "type": "number"
+        }
+      },
+      "required": ["x", "y", "width", "height"],
+      "type": "object"
+    },
+    "WidgetNode": {
+      "additionalProperties": false,
+      "properties": {
+        "anchors": {
+          "$ref": "#/$defs/WidgetAnchors",
+          "default": {
+            "bottom": 0.0,
+            "heightPercent": null,
+            "horizontal": "start",
+            "right": 0.0,
+            "vertical": "start",
+            "widthPercent": null
+          }
+        },
+        "appearance": {
+          "$ref": "#/$defs/WidgetAppearance"
+        },
+        "binding": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GroupDataBinding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "children": {
+          "items": {
+            "$ref": "#/$defs/WidgetNode"
+          },
+          "maxItems": 2000,
+          "type": "array"
+        },
+        "conditions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/WidgetCondition"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "default": null,
+          "maxLength": 64,
+          "minLength": 1,
+          "type": ["string", "null"]
+        },
+        "group": {
+          "$ref": "#/$defs/GroupSettings",
+          "default": {
+            "columns": 4.0,
+            "fillEnabled": true,
+            "fillOpacity": null,
+            "flow": "row",
+            "gap": 8.0,
+            "grow": "forward",
+            "headerAlignment": "left",
+            "headerBackground": "#141414",
+            "headerColor": "#d6b26e",
+            "headerEnabled": false,
+            "headerFontSize": 14.0,
+            "headerHeight": 28.0,
+            "headerOpacity": null,
+            "headerText": "",
+            "limit": 0.0,
+            "locked": false,
+            "motionMs": 0.0,
+            "padding": 0.0,
+            "scale": 100.0,
+            "sort": "manual",
+            "spanSeconds": 30.0,
+            "travel": "left"
+          }
+        },
+        "headerButtons": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/GroupHeaderButton"
+          },
+          "maxItems": 6,
+          "type": "array"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "imageSelection": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CatalogSelection"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "kind": {
+          "$ref": "#/$defs/WidgetKind"
+        },
+        "layout": {
+          "$ref": "#/$defs/WidgetLayout"
+        },
+        "load": {
+          "$ref": "#/$defs/LoadRules",
+          "default": {
+            "dungeonIds": [],
+            "inCombat": "any",
+            "inGroup": "any",
+            "mapIds": [],
+            "npcIds": [],
+            "playerClass": "",
+            "zone": ""
+          }
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "ruleSelections": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/CatalogSelection"
+            },
+            "type": "array"
+          },
+          "default": {},
+          "type": "object"
+        },
+        "rules": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TriggerGroup"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "sounds": {
+          "$ref": "#/$defs/WidgetSounds",
+          "default": {
+            "hide": "none",
+            "hideText": "",
+            "show": "none",
+            "showText": "",
+            "voice": "",
+            "voiceRate": 100.0,
+            "volume": 70.0
+          }
+        },
+        "style": {
+          "$ref": "#/$defs/WidgetStyle",
+          "default": {
+            "alignment": "center",
+            "animation": "none",
+            "animationChange": "any",
+            "animationColor": "#d6b26e",
+            "animationDuration": 2000.0,
+            "animationIntensity": 75.0,
+            "animationPath": "combat.damage",
+            "animationThreshold": 5.0,
+            "animationWhen": "always",
+            "backgroundOpacity": null,
+            "barDirection": null,
+            "barIconAnchor": "left",
+            "barIconEnabled": false,
+            "barIconPadding": 2.0,
+            "barIconSize": 20.0,
+            "barIconX": 0.0,
+            "barIconY": 0.0,
+            "barInverse": false,
+            "barLossColor": null,
+            "barValue": 50.0,
+            "barVertical": false,
+            "bold": false,
+            "borderStyle": "solid",
+            "borderWidth": 1.0,
+            "classColorSource": "none",
+            "classColorTarget": "fill",
+            "desaturate": false,
+            "fillColor": "#d6b26e",
+            "fontFamily": "lora",
+            "glow": false,
+            "glowColor": "#d6b26e",
+            "glowMode": "none",
+            "gradient": null,
+            "healingColor": "#a5e8ba99",
+            "healingPrediction": null,
+            "hideMotion": "none",
+            "imageEffectId": null,
+            "imageFit": "cover",
+            "imageSkillId": null,
+            "imageSource": "automatic",
+            "labelPosition": "top",
+            "layer": 0.0,
+            "motionDuration": 250.0,
+            "outline": false,
+            "outlineColor": "#000000",
+            "outlineWidth": 1.0,
+            "overhealColor": "#54d985b3",
+            "overhealTexture": "solid",
+            "overhealTextureSize": 8.0,
+            "path": "player.hp.value",
+            "periodMs": 1000.0,
+            "radius": 0.0,
+            "rangeMax": 100.0,
+            "rangeMin": 0.0,
+            "rightText": "",
+            "shadow": false,
+            "showMotion": "none",
+            "showStacks": true,
+            "showTimer": true,
+            "source": "fixed",
+            "spark": false,
+            "sparkColor": "#ffffff",
+            "stacksPosition": "bottom-right",
+            "swipe": true,
+            "swipeReverse": false,
+            "tickColor": "#ffffff",
+            "ticks": [],
+            "timerPosition": "center",
+            "transitionMs": 0.0,
+            "vertical": "middle",
+            "warnBelowSeconds": 0.0,
+            "wrap": true,
+            "zoom": 0.0
+          }
+        },
+        "trigger": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TriggerDefinition"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": ["id", "name", "kind", "enabled", "layout", "appearance", "children"],
+      "type": "object"
+    },
+    "WidgetSounds": {
+      "additionalProperties": false,
+      "properties": {
+        "hide": {
+          "$ref": "#/$defs/SoundCue",
+          "default": "none"
+        },
+        "hideText": {
+          "default": "",
+          "maxLength": 160,
+          "type": "string"
+        },
+        "show": {
+          "$ref": "#/$defs/SoundCue",
+          "default": "none"
+        },
+        "showText": {
+          "default": "",
+          "maxLength": 160,
+          "type": "string"
+        },
+        "voice": {
+          "default": "",
+          "maxLength": 512,
+          "type": "string"
+        },
+        "voiceRate": {
+          "default": 100.0,
+          "format": "double",
+          "maximum": 200,
+          "minimum": 50,
+          "type": "number"
+        },
+        "volume": {
+          "default": 70.0,
+          "format": "double",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "WidgetStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment": {
+          "$ref": "#/$defs/TextAlignment",
+          "default": "center"
+        },
+        "animation": {
+          "$ref": "#/$defs/WidgetAnimation",
+          "default": "none"
+        },
+        "animationChange": {
+          "$ref": "#/$defs/AnimationChange",
+          "default": "any"
+        },
+        "animationColor": {
+          "default": "#d6b26e",
+          "type": "string"
+        },
+        "animationDuration": {
+          "default": 2000.0,
+          "format": "double",
+          "type": "number"
+        },
+        "animationIntensity": {
+          "default": 75.0,
+          "format": "double",
+          "type": "number"
+        },
+        "animationPath": {
+          "default": "combat.damage",
+          "type": "string"
+        },
+        "animationThreshold": {
+          "default": 5.0,
+          "format": "double",
+          "type": "number"
+        },
+        "animationWhen": {
+          "$ref": "#/$defs/AnimationWhen",
+          "default": "always"
+        },
+        "backgroundOpacity": {
+          "default": null,
+          "format": "double",
+          "type": ["number", "null"]
+        },
+        "barDirection": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Direction"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "barIconAnchor": {
+          "$ref": "#/$defs/BarIconAnchor",
+          "default": "left"
+        },
+        "barIconEnabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "barIconPadding": {
+          "default": 2.0,
+          "format": "double",
+          "type": "number"
+        },
+        "barIconSize": {
+          "default": 20.0,
+          "format": "double",
+          "type": "number"
+        },
+        "barIconX": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "barIconY": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "barInverse": {
+          "default": false,
+          "type": "boolean"
+        },
+        "barLossColor": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "barValue": {
+          "default": 50.0,
+          "format": "double",
+          "type": "number"
+        },
+        "barVertical": {
+          "default": false,
+          "type": "boolean"
+        },
+        "bold": {
+          "default": false,
+          "type": "boolean"
+        },
+        "borderStyle": {
+          "$ref": "#/$defs/BorderStyle",
+          "default": "solid"
+        },
+        "borderWidth": {
+          "default": 1.0,
+          "format": "double",
+          "type": "number"
+        },
+        "classColorSource": {
+          "$ref": "#/$defs/ClassColorSource",
+          "default": "none"
+        },
+        "classColorTarget": {
+          "$ref": "#/$defs/ClassColorTarget",
+          "default": "fill"
+        },
+        "desaturate": {
+          "default": false,
+          "type": "boolean"
+        },
+        "fillColor": {
+          "default": "#d6b26e",
+          "type": "string"
+        },
+        "fontFamily": {
+          "$ref": "#/$defs/FontFamily",
+          "default": "lora"
+        },
+        "glow": {
+          "default": false,
+          "type": "boolean"
+        },
+        "glowColor": {
+          "default": "#d6b26e",
+          "type": "string"
+        },
+        "glowMode": {
+          "$ref": "#/$defs/GlowMode",
+          "default": "none"
+        },
+        "gradient": {
+          "default": null,
+          "type": ["string", "null"]
+        },
+        "healingColor": {
+          "default": "#a5e8ba99",
+          "type": "string"
+        },
+        "healingPrediction": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HealingPredictionTarget"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hideMotion": {
+          "$ref": "#/$defs/MotionKind",
+          "default": "none"
+        },
+        "imageEffectId": {
+          "default": null,
+          "format": "uint32",
+          "minimum": 0,
+          "type": ["integer", "null"]
+        },
+        "imageFit": {
+          "$ref": "#/$defs/ImageFit",
+          "default": "cover"
+        },
+        "imageSkillId": {
+          "default": null,
+          "format": "uint32",
+          "minimum": 0,
+          "type": ["integer", "null"]
+        },
+        "imageSource": {
+          "$ref": "#/$defs/ImageSource",
+          "default": "automatic"
+        },
+        "labelPosition": {
+          "$ref": "#/$defs/TextPosition",
+          "default": "top"
+        },
+        "layer": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "motionDuration": {
+          "default": 250.0,
+          "format": "double",
+          "type": "number"
+        },
+        "outline": {
+          "default": false,
+          "type": "boolean"
+        },
+        "outlineColor": {
+          "default": "#000000",
+          "type": "string"
+        },
+        "outlineWidth": {
+          "default": 1.0,
+          "format": "double",
+          "type": "number"
+        },
+        "overhealColor": {
+          "default": "#54d985b3",
+          "type": "string"
+        },
+        "overhealTexture": {
+          "$ref": "#/$defs/BarTexture",
+          "default": "solid"
+        },
+        "overhealTextureSize": {
+          "default": 8.0,
+          "format": "double",
+          "type": "number"
+        },
+        "path": {
+          "default": "player.hp.value",
+          "type": "string"
+        },
+        "periodMs": {
+          "default": 1000.0,
+          "format": "double",
+          "type": "number"
+        },
+        "radius": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "rangeMax": {
+          "default": 100.0,
+          "format": "double",
+          "type": "number"
+        },
+        "rangeMin": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "rightText": {
+          "default": "",
+          "type": "string"
+        },
+        "shadow": {
+          "default": false,
+          "type": "boolean"
+        },
+        "showMotion": {
+          "$ref": "#/$defs/MotionKind",
+          "default": "none"
+        },
+        "showStacks": {
+          "default": true,
+          "type": "boolean"
+        },
+        "showTimer": {
+          "default": true,
+          "type": "boolean"
+        },
+        "source": {
+          "$ref": "#/$defs/ProgressSource",
+          "default": "fixed"
+        },
+        "spark": {
+          "default": false,
+          "type": "boolean"
+        },
+        "sparkColor": {
+          "default": "#ffffff",
+          "type": "string"
+        },
+        "stacksPosition": {
+          "$ref": "#/$defs/TextPosition",
+          "default": "bottom-right"
+        },
+        "swipe": {
+          "default": true,
+          "type": "boolean"
+        },
+        "swipeReverse": {
+          "default": false,
+          "type": "boolean"
+        },
+        "tickColor": {
+          "default": "#ffffff",
+          "type": "string"
+        },
+        "ticks": {
+          "default": [],
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "timerPosition": {
+          "$ref": "#/$defs/TextPosition",
+          "default": "center"
+        },
+        "transitionMs": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "vertical": {
+          "$ref": "#/$defs/TextAnchor",
+          "default": "middle"
+        },
+        "warnBelowSeconds": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        },
+        "wrap": {
+          "default": true,
+          "type": "boolean"
+        },
+        "zoom": {
+          "default": 0.0,
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$id": "urn:aurion:InterfaceWorkspace:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/InterfaceDocument"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "formatVersion": {
+      "format": "uint32",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "revision": {
+      "format": "uint64",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": ["formatVersion", "revision", "documents"],
+  "title": "InterfaceWorkspace",
+  "type": "object"
+}

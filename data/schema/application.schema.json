@@ -1,0 +1,275 @@
+{
+  "$defs": {
+    "BundledLocale": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": ["string", "null"]
+        },
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "ui": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "label", "ui"],
+      "type": "object"
+    },
+    "CaptureConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "library": {
+          "type": "string"
+        },
+        "pollMs": {
+          "format": "uint64",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "processName": {
+          "type": "string"
+        },
+        "publishMs": {
+          "format": "uint64",
+          "maximum": 1000,
+          "minimum": 50,
+          "type": "integer"
+        },
+        "refreshMs": {
+          "format": "uint64",
+          "maximum": 60000,
+          "minimum": 100,
+          "type": "integer"
+        },
+        "staleMs": {
+          "format": "uint64",
+          "maximum": 60000,
+          "minimum": 1000,
+          "type": "integer"
+        }
+      },
+      "required": ["processName", "library", "refreshMs", "pollMs", "publishMs", "staleMs"],
+      "type": "object"
+    },
+    "CatalogConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "clientBuild": {
+          "format": "uint32",
+          "maximum": 4294967295,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "directory": {
+          "type": "string"
+        },
+        "enemy": {
+          "type": "string"
+        },
+        "manifest": {
+          "type": "string"
+        },
+        "npcs": {
+          "type": "string"
+        },
+        "player": {
+          "type": "string"
+        },
+        "runtime": {
+          "type": "string"
+        },
+        "skillNames": {
+          "type": "string"
+        },
+        "sourceLocale": {
+          "type": "string"
+        },
+        "zones": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "directory",
+        "clientBuild",
+        "manifest",
+        "player",
+        "enemy",
+        "zones",
+        "npcs",
+        "runtime",
+        "skillNames",
+        "sourceLocale"
+      ],
+      "type": "object"
+    },
+    "LanguagePackageConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": "string"
+        },
+        "manifest": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "string"
+        }
+      },
+      "required": ["manifest", "messages", "catalog"],
+      "type": "object"
+    },
+    "LocalizationConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "bundled": {
+          "items": {
+            "$ref": "#/$defs/BundledLocale"
+          },
+          "type": "array"
+        },
+        "defaultLocale": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "string"
+        },
+        "fallbackLocale": {
+          "type": "string"
+        },
+        "package": {
+          "$ref": "#/$defs/LanguagePackageConfiguration"
+        }
+      },
+      "required": ["defaultLocale", "fallbackLocale", "directory", "bundled", "package"],
+      "type": "object"
+    },
+    "ProtocolConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "capture": {
+          "$ref": "#/$defs/CaptureConfiguration"
+        },
+        "combatIdleMs": {
+          "format": "uint64",
+          "maximum": 120000,
+          "minimum": 1000,
+          "type": "integer"
+        },
+        "table": {
+          "type": "string"
+        }
+      },
+      "required": ["table", "combatIdleMs", "capture"],
+      "type": "object"
+    },
+    "ResourceConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "trayIcon": {
+          "type": "string"
+        }
+      },
+      "required": ["trayIcon"],
+      "type": "object"
+    },
+    "SchemaConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "application": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "string"
+        },
+        "document": {
+          "type": "string"
+        },
+        "formula": {
+          "type": "string"
+        },
+        "journal": {
+          "type": "string"
+        },
+        "npcCatalog": {
+          "type": "string"
+        },
+        "opcodes": {
+          "type": "string"
+        },
+        "runtimeCatalog": {
+          "type": "string"
+        },
+        "skillNames": {
+          "type": "string"
+        },
+        "triggers": {
+          "type": "string"
+        },
+        "workspace": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "directory",
+        "application",
+        "journal",
+        "workspace",
+        "document",
+        "triggers",
+        "formula",
+        "opcodes",
+        "npcCatalog",
+        "runtimeCatalog",
+        "skillNames"
+      ],
+      "type": "object"
+    },
+    "StorageConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "journal": {
+          "type": "string"
+        },
+        "preferences": {
+          "type": "string"
+        },
+        "profiles": {
+          "type": "string"
+        }
+      },
+      "required": ["preferences", "profiles", "journal"],
+      "type": "object"
+    }
+  },
+  "$id": "urn:aurion:ApplicationDefinition:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog": {
+      "$ref": "#/$defs/CatalogConfiguration"
+    },
+    "localization": {
+      "$ref": "#/$defs/LocalizationConfiguration"
+    },
+    "protocol": {
+      "$ref": "#/$defs/ProtocolConfiguration"
+    },
+    "resources": {
+      "$ref": "#/$defs/ResourceConfiguration"
+    },
+    "schemas": {
+      "$ref": "#/$defs/SchemaConfiguration"
+    },
+    "storage": {
+      "$ref": "#/$defs/StorageConfiguration"
+    }
+  },
+  "required": ["catalog", "protocol", "localization", "resources", "schemas", "storage"],
+  "title": "ApplicationDefinition",
+  "type": "object"
+}

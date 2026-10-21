@@ -1,0 +1,475 @@
+{
+  "$defs": {
+    "JournalAppearance": {
+      "additionalProperties": false,
+      "properties": {
+        "accent": {
+          "default": "#42bbb9",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "animationMs": {
+          "default": 300,
+          "format": "uint32",
+          "maximum": 2000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "backgroundColor": {
+          "default": "#192123",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "barGradient": {
+          "default": false,
+          "type": "boolean"
+        },
+        "barOpacity": {
+          "default": 80,
+          "format": "uint32",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "bars": {
+          "default": true,
+          "type": "boolean"
+        },
+        "borderColor": {
+          "default": "#3b4a4d",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "borderStyle": {
+          "$ref": "#/$defs/JournalBorderStyle",
+          "default": "solid"
+        },
+        "borderWidth": {
+          "default": 1,
+          "format": "uint32",
+          "maximum": 4,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "classColors": {
+          "default": true,
+          "type": "boolean"
+        },
+        "compactNumbers": {
+          "default": true,
+          "type": "boolean"
+        },
+        "customColors": {
+          "default": false,
+          "type": "boolean"
+        },
+        "decimals": {
+          "default": 1,
+          "format": "uint32",
+          "maximum": 3,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "font": {
+          "$ref": "#/$defs/JournalFont",
+          "default": "inter"
+        },
+        "fontSize": {
+          "default": 11,
+          "format": "uint32",
+          "maximum": 32,
+          "minimum": 10,
+          "type": "integer"
+        },
+        "headerButtonSize": {
+          "default": 20,
+          "format": "uint32",
+          "maximum": 32,
+          "minimum": 12,
+          "type": "integer"
+        },
+        "headerButtons": {
+          "default": ["metric", "segment", "new-window", "preview", "settings", "close"],
+          "items": {
+            "$ref": "#/$defs/JournalHeaderButton"
+          },
+          "maxItems": 7,
+          "type": "array"
+        },
+        "headerButtonsOnHover": {
+          "default": false,
+          "type": "boolean"
+        },
+        "headerColor": {
+          "default": "#202a2c",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "headerFontSize": {
+          "default": 13,
+          "format": "uint32",
+          "maximum": 24,
+          "minimum": 8,
+          "type": "integer"
+        },
+        "headerHeight": {
+          "default": 44,
+          "format": "uint32",
+          "maximum": 48,
+          "minimum": 20,
+          "type": "integer"
+        },
+        "headerOpacity": {
+          "default": 100,
+          "format": "uint32",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "headerTextColor": {
+          "default": "#f5f5f5",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "opacity": {
+          "default": 0.9,
+          "format": "double",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "padding": {
+          "default": 4,
+          "format": "uint32",
+          "maximum": 24,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rowBackgroundColor": {
+          "default": "#20292b",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "rowBackgroundOpacity": {
+          "default": 100,
+          "format": "uint32",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rowGap": {
+          "default": 2,
+          "format": "uint32",
+          "maximum": 12,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rowHeight": {
+          "default": 22,
+          "format": "uint32",
+          "maximum": 64,
+          "minimum": 14,
+          "type": "integer"
+        },
+        "rowPadding": {
+          "default": 5,
+          "format": "uint32",
+          "maximum": 16,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rowRadius": {
+          "default": 0,
+          "format": "uint32",
+          "maximum": 12,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "showHeader": {
+          "default": true,
+          "type": "boolean"
+        },
+        "showPercent": {
+          "default": true,
+          "type": "boolean"
+        },
+        "showRank": {
+          "default": true,
+          "type": "boolean"
+        },
+        "showTotal": {
+          "default": true,
+          "type": "boolean"
+        },
+        "textColor": {
+          "default": "#f5f5f5",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "totalColor": {
+          "default": "#adbec3",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        },
+        "valueColor": {
+          "default": "#f5f5f5",
+          "maxLength": 7,
+          "minLength": 7,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "JournalBorderStyle": {
+      "enum": ["solid", "dashed", "dotted"],
+      "type": "string"
+    },
+    "JournalFont": {
+      "enum": [
+        "lora",
+        "sans",
+        "mono",
+        "inter",
+        "roboto",
+        "open-sans",
+        "noto-sans",
+        "source-sans-3",
+        "ubuntu-sans",
+        "montserrat",
+        "roboto-condensed",
+        "oswald",
+        "ibm-plex-sans",
+        "roboto-mono"
+      ],
+      "type": "string"
+    },
+    "JournalHeaderButton": {
+      "enum": ["metric", "segment", "new-window", "preview", "new-run", "settings", "close"],
+      "type": "string"
+    },
+    "JournalMetric": {
+      "enum": [
+        "damage",
+        "dps",
+        "healing",
+        "hps",
+        "damage-taken",
+        "healing-taken",
+        "hits",
+        "critical",
+        "deaths",
+        "misses",
+        "resists"
+      ],
+      "type": "string"
+    },
+    "JournalPanelLayout": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "format": "double",
+          "type": "number"
+        },
+        "width": {
+          "format": "double",
+          "type": "number"
+        },
+        "x": {
+          "format": "double",
+          "type": "number"
+        },
+        "y": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": ["x", "y", "width", "height"],
+      "type": "object"
+    },
+    "JournalPeriod": {
+      "enum": ["current", "run", "total"],
+      "type": "string"
+    },
+    "JournalScope": {
+      "enum": ["group", "players", "all", "player"],
+      "type": "string"
+    },
+    "JournalWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "format": "double",
+          "maximum": 1440,
+          "minimum": 100,
+          "type": "number"
+        },
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        },
+        "limit": {
+          "format": "uint32",
+          "maximum": 40,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "locked": {
+          "default": false,
+          "type": "boolean"
+        },
+        "mergeSummons": {
+          "type": "boolean"
+        },
+        "metric": {
+          "$ref": "#/$defs/JournalMetric"
+        },
+        "name": {
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "period": {
+          "$ref": "#/$defs/JournalPeriod"
+        },
+        "scope": {
+          "$ref": "#/$defs/JournalScope"
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "width": {
+          "format": "double",
+          "maximum": 1920,
+          "minimum": 220,
+          "type": "number"
+        },
+        "x": {
+          "format": "double",
+          "maximum": 100000,
+          "minimum": -100000,
+          "type": "number"
+        },
+        "y": {
+          "format": "double",
+          "maximum": 100000,
+          "minimum": -100000,
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "visible",
+        "x",
+        "y",
+        "width",
+        "height",
+        "metric",
+        "scope",
+        "period",
+        "limit",
+        "mergeSummons"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:aurion:JournalPreferences:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "analysisPanel": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/JournalPanelLayout"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "appearance": {
+      "$ref": "#/$defs/JournalAppearance",
+      "default": {
+        "accent": "#42bbb9",
+        "animationMs": 300,
+        "backgroundColor": "#192123",
+        "barGradient": false,
+        "barOpacity": 80,
+        "bars": true,
+        "borderColor": "#3b4a4d",
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "classColors": true,
+        "compactNumbers": true,
+        "customColors": false,
+        "decimals": 1,
+        "font": "inter",
+        "fontSize": 11,
+        "headerButtonSize": 20,
+        "headerButtons": ["metric", "segment", "new-window", "preview", "settings", "close"],
+        "headerButtonsOnHover": false,
+        "headerColor": "#202a2c",
+        "headerFontSize": 13,
+        "headerHeight": 44,
+        "headerOpacity": 100,
+        "headerTextColor": "#f5f5f5",
+        "opacity": 0.9,
+        "padding": 4,
+        "rowBackgroundColor": "#20292b",
+        "rowBackgroundOpacity": 100,
+        "rowGap": 2,
+        "rowHeight": 22,
+        "rowPadding": 5,
+        "rowRadius": 0,
+        "showHeader": true,
+        "showPercent": true,
+        "showRank": true,
+        "showTotal": true,
+        "textColor": "#f5f5f5",
+        "totalColor": "#adbec3",
+        "valueColor": "#f5f5f5"
+      }
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "historyLimit": {
+      "format": "uint",
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "settingsPanel": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/JournalPanelLayout"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "windows": {
+      "items": {
+        "$ref": "#/$defs/JournalWindow"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": ["enabled", "historyLimit", "windows"],
+  "title": "JournalPreferences",
+  "type": "object"
+}

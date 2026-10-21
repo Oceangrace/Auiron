@@ -1,0 +1,482 @@
+{
+  "$defs": {
+    "FormulaConstant": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "FormulaExpression": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "constant",
+              "type": "string"
+            },
+            "value": {
+              "$ref": "#/$defs/FormulaConstant"
+            }
+          },
+          "required": ["kind", "value"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "field",
+              "type": "string"
+            },
+            "path": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": ["kind", "path"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "formulaId": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "const": "formula",
+              "type": "string"
+            }
+          },
+          "required": ["kind", "formulaId"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "add"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "subtract"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "multiply"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "divide"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "minimum"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "maximum"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "round"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "absolute"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "clamp"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 3,
+                    "minItems": 3
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "not-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "less"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "less-or-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "greater"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "greater-or-equal"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 2,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "all"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "any"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "not"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "operation": {
+                    "const": "coalesce"
+                  }
+                },
+                "required": ["operation"]
+              },
+              "then": {
+                "properties": {
+                  "operands": {
+                    "maxItems": 8,
+                    "minItems": 2
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "kind": {
+              "const": "operation",
+              "type": "string"
+            },
+            "operands": {
+              "items": {
+                "$ref": "#/$defs/FormulaExpression"
+              },
+              "maxItems": 8,
+              "minItems": 1,
+              "type": "array"
+            },
+            "operation": {
+              "$ref": "#/$defs/FormulaOperation"
+            }
+          },
+          "required": ["kind", "operation", "operands"],
+          "type": "object"
+        }
+      ]
+    },
+    "FormulaOperation": {
+      "enum": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide",
+        "minimum",
+        "maximum",
+        "round",
+        "absolute",
+        "clamp",
+        "equal",
+        "not-equal",
+        "less",
+        "less-or-equal",
+        "greater",
+        "greater-or-equal",
+        "all",
+        "any",
+        "not",
+        "coalesce"
+      ],
+      "type": "string"
+    },
+    "FormulaValueKind": {
+      "enum": ["number", "boolean", "percent", "duration"],
+      "type": "string"
+    }
+  },
+  "$id": "urn:aurion:FormulaDefinition:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expression": {
+      "$ref": "#/$defs/FormulaExpression"
+    },
+    "id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "$ref": "#/$defs/FormulaValueKind"
+    },
+    "name": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": ["id", "name", "kind", "expression"],
+  "title": "FormulaDefinition",
+  "type": "object"
+}

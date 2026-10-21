@@ -1,0 +1,51 @@
+//! Сохраняемые триггеры, условия и ограничения загрузки.
+
+mod boss_event;
+mod boss_trigger;
+mod catalog_selection;
+mod comparison_operator;
+mod condition_change;
+mod condition_check;
+mod condition_field;
+mod condition_mode;
+mod effects;
+mod events;
+mod load_rules;
+mod load_state;
+mod observation_kind;
+mod rule_kind;
+mod trigger_definition;
+mod trigger_group;
+mod trigger_rule;
+mod trigger_subject;
+mod value_operator;
+mod value_trigger;
+mod widget_condition;
+
+pub(crate) use self::boss_event::BossEvent;
+pub(crate) use self::boss_trigger::BossTrigger;
+pub(crate) use self::catalog_selection::CatalogSelection;
+pub(crate) use self::comparison_operator::ComparisonOperator;
+pub(crate) use self::condition_change::ConditionChange;
+pub(crate) use self::condition_check::ConditionCheck;
+pub(crate) use self::condition_field::ConditionField;
+pub(crate) use self::condition_mode::ConditionMode;
+pub(crate) use self::effects::EffectTrigger;
+pub(crate) use self::events::EventTrigger;
+pub(crate) use self::load_rules::LoadRules;
+pub(crate) use self::load_state::LoadState;
+pub(crate) use self::observation_kind::ObservationKind;
+pub(crate) use self::rule_kind::RuleKind;
+pub(crate) use self::trigger_definition::TriggerDefinition;
+pub(crate) use self::trigger_group::TriggerGroup;
+pub(crate) use self::trigger_rule::TriggerRule;
+pub(crate) use self::trigger_subject::TriggerSubject;
+pub(crate) use self::value_operator::ValueOperator;
+pub(crate) use self::value_trigger::ValueTrigger;
+pub(crate) use self::widget_condition::WidgetCondition;
+
+pub(crate) use self::effects::EffectFilter;
+pub(crate) use self::effects::EffectOrigin;
+pub(crate) use self::effects::EffectPresence;
+pub(crate) use self::effects::TriggerUnit;
+pub(crate) use self::events::EventParticipant;

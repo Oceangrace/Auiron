@@ -1,0 +1,47 @@
+//! Сохраняемые параметры оформления и анимации.
+
+mod animation;
+mod bar_icon_anchor;
+mod bar_texture;
+mod border_style;
+mod class_color_source;
+mod class_color_target;
+mod font_family;
+mod font_weight;
+mod glow_mode;
+mod healing_prediction_target;
+mod hex_color;
+mod image_fit;
+mod image_source;
+mod outline_style;
+mod progress_source;
+mod text_alignment;
+mod text_anchor;
+mod text_position;
+mod widget_appearance;
+mod widget_style;
+
+pub(crate) use self::animation::AnimationChange;
+pub(crate) use self::animation::AnimationWhen;
+pub(crate) use self::animation::ConditionAnimation;
+pub(crate) use self::animation::MotionKind;
+pub(crate) use self::animation::WidgetAnimation;
+pub(crate) use self::bar_icon_anchor::BarIconAnchor;
+pub(crate) use self::bar_texture::BarTexture;
+pub(crate) use self::border_style::BorderStyle;
+pub(crate) use self::class_color_source::ClassColorSource;
+pub(crate) use self::class_color_target::ClassColorTarget;
+pub(crate) use self::font_family::FontFamily;
+pub(crate) use self::font_weight::FontWeight;
+pub(crate) use self::glow_mode::GlowMode;
+pub(crate) use self::healing_prediction_target::HealingPredictionTarget;
+pub(crate) use self::hex_color::HexColor;
+pub(crate) use self::image_fit::ImageFit;
+pub(crate) use self::image_source::ImageSource;
+pub(crate) use self::outline_style::OutlineStyle;
+pub(crate) use self::progress_source::ProgressSource;
+pub(crate) use self::text_alignment::TextAlignment;
+pub(crate) use self::text_anchor::TextAnchor;
+pub(crate) use self::text_position::TextPosition;
+pub(crate) use self::widget_appearance::WidgetAppearance;
+pub(crate) use self::widget_style::WidgetStyle;

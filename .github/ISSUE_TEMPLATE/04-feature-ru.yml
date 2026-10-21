@@ -1,0 +1,26 @@
+name: Предложить улучшение (Русский)
+description: Идея для Aurion или примера HUD.
+title: '[Feature] '
+body:
+  - type: markdown
+    attributes:
+      value: Сначала поищите похожие issues. Создавайте отдельный issue для каждой идеи.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Что хотите улучшить?
+      description: Опишите задачу или неудобство, из-за которого появилась идея.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Ваше предложение
+      description: Расскажите, как это должно работать.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Примеры или альтернативы (необязательно)
+      description: Добавьте схему, скриншот, пример или описание текущего обходного решения.

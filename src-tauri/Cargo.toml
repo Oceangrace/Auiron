@@ -1,0 +1,53 @@
+[package]
+name = "aurion"
+default-run = "aurion"
+version = "0.1.0"
+description = "aurion"
+license = "GPL-3.0-or-later"
+edition = "2024"
+publish = false
+
+[lib]
+name = "aurion_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+sha2 = "0.10"
+serde = { version = "1", features = ["derive"] }
+schemars = "=1.2.3"
+tauri-build = { version = "2", features = [] }
+serde_json = "1"
+
+[dependencies]
+icu_collator = "=2.3.1"
+icu_locale = "=2.3.0"
+tauri = { version = "=2.12.3", features = ["tray-icon", "image-png"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+schemars = "=1.2.3"
+windows = { version = "=0.62.2", features = ["Foundation", "Foundation_Collections", "Media_Core", "Media_SpeechSynthesis", "Storage_Streams", "Win32_System_WinRT", "Win32_Globalization", "Win32_System_SystemServices", "Win32_NetworkManagement_IpHelper", "Win32_Networking_WinSock", "Win32_Networking_WinHttp", "Win32_System_Diagnostics_ToolHelp", "Win32_System_Threading", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_WindowsAndMessaging", "Win32_Graphics_Gdi"] }
+sha2 = "0.10"
+base64 = "0.22"
+flate2 = "1"
+uuid = { version = "1.28.0", features = ["v4"] }
+tauri-plugin-dialog = "2"
+lz4_flex = { version = "0.14", default-features = false, features = ["std", "safe-decode"] }
+libloading = "0.9"
+png = "=0.18.1"
+
+
+[features]
+schema = []
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.dev]
+debug = 1
+incremental = false
+
+[profile.dev.package."*"]
+debug = false
+
+[[bin]]
+name = "aurion-schema"
+path = "src/bin/aurion-schema.rs"
+required-features = ["schema"]

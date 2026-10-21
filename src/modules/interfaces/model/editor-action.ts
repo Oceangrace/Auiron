@@ -1,0 +1,16 @@
+export enum EditorAction {
+  Save = 'save',
+  Undo = 'undo',
+  Redo = 'redo',
+  Remove = 'remove',
+  Deselect = 'deselect',
+  Duplicate = 'duplicate',
+  Left = 'left',
+  Right = 'right',
+  Up = 'up',
+  Down = 'down',
+  LeftFast = 'left_fast',
+  RightFast = 'right_fast',
+  UpFast = 'up_fast',
+  DownFast = 'down_fast',
+}

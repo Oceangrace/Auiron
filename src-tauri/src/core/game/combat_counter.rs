@@ -1,0 +1,37 @@
+use serde::{Deserialize, Serialize};
+
+#[derive(Deserialize, Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub(crate) enum CombatCounter {
+    Damage,
+    DirectDamage,
+    PeriodicDamage,
+    Healing,
+    PeriodicHealing,
+    DamageTaken,
+    HealingTaken,
+    Hits,
+    DirectHits,
+    PeriodicHits,
+    HealHits,
+    CriticalHits,
+    BackHits,
+    FrontalHits,
+    PerfectHits,
+    DoubleHits,
+    ParryHits,
+    ShieldBlockHits,
+    IronWallHits,
+    RegenerationHits,
+    PerfectBlockHits,
+    Misses,
+    Resists,
+    AdditionalHits,
+    AdditionalDamage,
+    AdditionalHitEvents,
+    ReceivedHits,
+    RegenerationHealing,
+    Deaths,
+    UnknownHits,
+    RestoredHp,
+}
