@@ -19,20 +19,20 @@ impl<'a> SelectionResolver<'a> {
         Self { catalog }
     }
 
+    /// IDs of the entry in the current catalog; `None` when it is no longer there.
     pub(super) fn ids(&self, selection: &CatalogSelection) -> Option<Vec<u32>> {
-        if selection.catalog_version != self.catalog.version() {
-            return None;
-        }
-
-        Some(
-            self.catalog
-                .find(
-                    &selection.scope,
-                    selection.context_key.as_deref(),
-                    &selection.entry_key,
-                )?
-                .match_ids(),
-        )
+        self.catalog
+            .find(
+                &selection.scope,
+                selection.context_key.as_deref(),
+                &selection.entry_key,
+            )
+            .filter(|item| {
+                item.forms
+                    .iter()
+                    .any(|form| form.key == selection.choice_key && !form.match_ids.is_empty())
+            })
+            .map(|item| item.match_ids())
     }
 
     pub(super) fn actor_ids(&self, key: &str) -> Option<Vec<u32>> {

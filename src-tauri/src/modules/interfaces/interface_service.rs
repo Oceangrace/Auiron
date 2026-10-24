@@ -227,22 +227,6 @@ impl InterfaceService {
         Ok(self.read())
     }
 
-    fn selection_ids(&self, selection: &CatalogSelection) -> Result<Vec<u32>, String> {
-        if selection.catalog_version != self.catalog.version() {
-            return Err("Catalog changed: choose the variant again".into());
-        }
-
-        self.catalog
-            .find(
-                &selection.scope,
-                selection.context_key.as_deref(),
-                &selection.entry_key,
-            )
-            .map(|item| item.match_ids())
-            .filter(|ids| !ids.is_empty())
-            .ok_or("Catalog variant is unavailable".into())
-    }
-
     fn selection_scope(rule: &TriggerRule, selection: &CatalogSelection) -> bool {
         let effect = match rule {
             TriggerRule::Effect { .. } => true,
@@ -264,10 +248,6 @@ impl InterfaceService {
 
     fn validate_triggers(&self, nodes: &[WidgetNode]) -> Result<(), String> {
         for node in nodes {
-            if let Some(selection) = &node.image_selection {
-                self.selection_ids(selection)?;
-            }
-
             for (id, selections) in &node.rule_selections {
                 let rule = node
                     .rules
@@ -275,53 +255,18 @@ impl InterfaceService {
                     .and_then(|group| group.rules.iter().find(|rule| rule.id() == id))
                     .ok_or("Catalog selection refers to a missing rule")?;
 
-                let mut actual = Vec::new();
-
-                for selection in selections {
-                    if !Self::selection_scope(rule, selection) {
-                        return Err(
-                            "Rule catalog type does not match the selected observation".into()
-                        );
-                    }
-
-                    actual.extend(self.selection_ids(selection)?);
-                }
-
-                let expected = rule.match_ids();
-
-                if !selections.is_empty() && expected.iter().any(|id| !actual.contains(id)) {
-                    return Err("Rule filter does not match the selected catalog variants".into());
+                // Live evaluation takes the IDs from the selections, not from the IDs copied
+                // into the rule, so a catalog update cannot make them disagree in effect.
+                if selections
+                    .iter()
+                    .any(|selection| !Self::selection_scope(rule, selection))
+                {
+                    return Err("Rule catalog type does not match the selected observation".into());
                 }
             }
 
             if let Some(trigger) = &node.trigger {
                 let selection = &trigger.selection;
-
-                if selection.catalog_version != self.catalog.version() {
-                    return Err(format!(
-                        "{}: catalog changed, select the entry again",
-                        node.name
-                    ));
-                }
-
-                let item = self
-                    .catalog
-                    .find(
-                        &selection.scope,
-                        selection.context_key.as_deref(),
-                        &selection.entry_key,
-                    )
-                    .ok_or_else(|| {
-                        format!("{}: catalog entry is no longer supported", node.name)
-                    })?;
-
-                if !item
-                    .forms
-                    .iter()
-                    .any(|form| form.key == selection.choice_key && !form.match_ids.is_empty())
-                {
-                    return Err(format!("{}: selected form is not supported", node.name));
-                }
 
                 let scope_matches = match trigger.observation {
                     ObservationKind::EffectPresent => matches!(

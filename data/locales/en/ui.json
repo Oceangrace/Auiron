@@ -78,6 +78,14 @@
       "dismiss": "Dismiss update notice",
       "checkFailed": "Could not check for updates. Try again later or open the releases page.",
       "openFailed": "Could not open the browser. Releases: github.com/Oceangrace/Aurion/releases"
+    },
+    "saveFailed": {
+      "title": "Could not save",
+      "closeMessage": "Unsaved edits stay in the editor until you quit the overlay.",
+      "quitMessage": "Quitting now discards unsaved edits.",
+      "stay": "Stay",
+      "close": "Close editor",
+      "quit": "Quit without saving"
     }
   },
   "select": {
@@ -1794,14 +1802,10 @@
     "Слишком длинные сведения об интерфейсе": "Interface information exceeds the length limit",
     "Aurion — Редактор интерфейсов": "Aurion — Interface editor",
     "{name}: неизвестный тип элемента": "{name}: unknown element type",
-    "{}: выбранная форма не поддерживается": "{}: selected form is not supported",
     "{}: иконка ID{} требует выбора в справочнике": "{}: icon ID{} requires a catalog selection",
     "{}: правило {}, ID{} отсутствует или неоднозначен в новом справочнике": "{}: rule {}, ID{} is missing or ambiguous in the new catalog",
-    "{}: пункт справочника больше не поддерживается": "{}: catalog entry is no longer supported",
-    "{}: справочник изменился, выберите пункт заново": "{}: catalog changed, select the entry again",
     "В документе повторяются идентификаторы": "Duplicate identifiers in document",
     "В первой версии противник поддерживает наблюдение применения своего умения": "Enemy observations currently support skill use only",
-    "Вариант справочника недоступен": "Catalog variant is unavailable",
     "Группа": "Group",
     "Да": "Yes",
     "Длительность уведомления должна быть от 0,1 до 3600 секунд": "Notification duration must be between 0.1 and 3600 seconds",
@@ -1915,7 +1919,6 @@
     "Сохранение не выполнено: файл изменился снаружи. Изменения остались в открытом редакторе.": "Save failed: the file changed externally. Your edits remain in the open editor.",
     "Сохранение отключено: исходный файл требует восстановления": "Saving is disabled: the original file needs recovery",
     "Сохранить интерфейс": "Save interface",
-    "Справочник изменился: выберите вариант заново": "Catalog changed: choose the variant again",
     "Справочник ссылается на отсутствующее правило": "Catalog selection refers to a missing rule",
     "Ссылка на отсутствующую формулу": "Reference to a missing formula",
     "Строка импорта слишком большая": "Import string is too large",
@@ -1928,7 +1931,6 @@
     "Файл интерфейсов слишком большой": "Interface file is too large",
     "Файл настроек повреждён и оставлен без изменений: {error}": "Preferences file is damaged and was left unchanged: {error}",
     "Файл настроек слишком большой и оставлен без изменений": "Preferences file is too large and was left unchanged",
-    "Фильтр правила не соответствует выбранным вариантам справочника": "Rule filter does not match the selected catalog variants",
     "Формула слишком сложная": "Formula is too complex",
     "Фраза длиннее 160 символов": "Phrase exceeds 160 characters",
     "Фраза условия длиннее 160 символов": "Condition phrase exceeds 160 characters",

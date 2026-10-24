@@ -3,6 +3,9 @@ import { combatJournalContextKey } from '../modules/combat-journal/combat-journa
 import JournalSurface from '../modules/combat-journal/renderer/journal-surface.vue';
 
 import UiMessage from './components/ui/ui-message.vue';
+import UiConfirmDialog from './components/ui/ui-confirm-dialog.vue';
+import { ExitRequest } from '../modules/interfaces/model/exit-request';
+import { UserMessage } from '../core/localization/user-message';
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { interfacesContextKey } from '../modules/interfaces/interfaces-context-key';
@@ -42,6 +45,8 @@ const ready = interfaces.getReady();
 const state = interfaces.session.getState();
 
 const editing = interfaces.getEditing();
+
+const blockedExit = interfaces.getBlockedExit();
 
 const hudEnabled = interfaces.getHudEnabled();
 
@@ -102,6 +107,10 @@ if (resources === undefined) {
 }
 
 const shell = new ShellController(desktop, resources.defaultLocale);
+
+const messages = new UserMessage(resources.messages);
+
+const saveError = computed(() => messages.translate(state.value.message ?? '', locale.value));
 
 const preferences = shell.getState();
 
@@ -208,7 +217,8 @@ onBeforeUnmount(() => {
       editing ||
       settingsOpen ||
       previewEnabled ||
-      foreground
+      foreground ||
+      blockedExit !== null
     "
     ref="root"
     class="application-surface"
@@ -288,6 +298,25 @@ onBeforeUnmount(() => {
     <p v-else class="startup-message">
       <UiMessage :text="state.message ?? t('modules.interfaces.loading')" />
     </p>
+    <UiConfirmDialog
+      :open="blockedExit !== null"
+      :title="t('shell.saveFailed.title')"
+      :message="
+        saveError +
+        ' ' +
+        t(
+          blockedExit === ExitRequest.Quit
+            ? 'shell.saveFailed.quitMessage'
+            : 'shell.saveFailed.closeMessage',
+        )
+      "
+      :cancel-label="t('shell.saveFailed.stay')"
+      :confirm-label="
+        t(blockedExit === ExitRequest.Quit ? 'shell.saveFailed.quit' : 'shell.saveFailed.close')
+      "
+      @cancel="interfaces.cancelExit()"
+      @confirm="void interfaces.continueExit()"
+    />
   </main>
 </template>
 <style scoped>

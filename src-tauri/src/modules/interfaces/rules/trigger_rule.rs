@@ -61,16 +61,4 @@ impl TriggerRule {
             Self::Event { .. } => RuleKind::Event,
         }
     }
-
-    pub(crate) fn match_ids(&self) -> Vec<u32> {
-        match self {
-            Self::Boss { .. } | Self::Value { .. } => Vec::new(),
-            Self::Effect { trigger, .. } => trigger.effects.iter().map(|id| id.get()).collect(),
-            Self::Event { trigger, .. } => [trigger.skill_id, trigger.effect_id]
-                .into_iter()
-                .flatten()
-                .map(|id| id.get())
-                .collect(),
-        }
-    }
 }
