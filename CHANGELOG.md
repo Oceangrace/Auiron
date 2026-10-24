@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-10-24
+
+### Fixed
+
+- HUD profiles made with an earlier game catalog lost their skill and effect icons and could
+  not be saved after the catalog update in 0.1.3. Catalog entries are now found by their
+  keys, so existing and imported profiles keep working without picking skills again.
+  An entry that is really gone from the catalog shows its unknown state and no longer blocks
+  saving, import or export.
+- A failed save no longer traps the editor and the overlay. Closing asks whether to stay
+  or close the editor with the edits kept; quitting asks whether to stay or quit without saving.
+- The editor can be closed while profiles are read-only after a load error.
+
 ## [0.1.3] - 2026-10-21
 
 ### Changed

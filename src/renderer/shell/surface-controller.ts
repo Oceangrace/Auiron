@@ -112,7 +112,7 @@ export class SurfaceController {
       subtree: true,
       childList: true,
       attributes: true,
-      attributeFilter: ['style', 'class', 'hidden', 'data-overlay-interactive'],
+      attributeFilter: ['style', 'class', 'hidden', 'open', 'data-overlay-interactive'],
     });
     this.fallback = setInterval(this.schedule, 1000);
     this.observe();

@@ -50,6 +50,7 @@ watch(
 </template>
 <style scoped>
 .ui-confirm-dialog {
+  pointer-events: auto;
   width: min(430px, calc(100vw - 40px));
   padding: 24px;
   border: 1px solid var(--prism-border);
