@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.3" /></a>
+  <a href="#установка"><img src="docs/assets/badges/version.svg" alt="Версия 0.1.4" /></a>
   <a href="#установка"><img src="docs/assets/badges/windows.svg" alt="Windows 10 / 11" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/rust.svg" alt="Rust, редакция 2024" /></a>
   <a href="docs/ru/DEVELOPMENT.md"><img src="docs/assets/badges/tauri.svg" alt="Tauri 2" /></a><br />

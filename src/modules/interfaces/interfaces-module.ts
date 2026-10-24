@@ -22,6 +22,8 @@ import type { SoundPlayback } from './scene/sound-playback';
 import { ConditionProperty } from './model/condition-property';
 import { GroupDataSource } from './model/rules/group-data-source';
 import { SoundCue } from './model/sound-cue';
+import { ExitRequest } from './model/exit-request';
+import { SaveStatus } from './editor/save-status';
 
 export class InterfacesModule {
   public readonly session: EditorSession;
@@ -33,6 +35,7 @@ export class InterfacesModule {
   private readonly snapshot = shallowRef<InterfaceSnapshot | null>(null);
   private readonly ready = shallowRef(false);
   private readonly editing = shallowRef(false);
+  private readonly blockedExit = shallowRef<ExitRequest | null>(null);
   private readonly hudEnabled = shallowRef(true);
   private readonly gamePanel = shallowRef(false);
   private gamePanelRevision = 0;
@@ -108,6 +111,10 @@ export class InterfacesModule {
 
   public getEditing(): Readonly<ShallowRef<boolean>> {
     return shallowReadonly(this.editing);
+  }
+
+  public getBlockedExit(): Readonly<ShallowRef<ExitRequest | null>> {
+    return shallowReadonly(this.blockedExit);
   }
 
   public getHudEnabled(): Readonly<ShallowRef<boolean>> {
@@ -436,19 +443,55 @@ export class InterfacesModule {
   }
 
   public async close(): Promise<void> {
-    if ((await this.session.save()) === true) {
-      this.preview.enable(false);
-      this.editing.value = false;
+    if ((await this.saved(ExitRequest.Close)) === true) {
+      this.finishClose();
     }
   }
 
   public async quit(): Promise<void> {
-    const saved = this.session.isReadOnly() === true || (await this.session.save());
+    if ((await this.saved(ExitRequest.Quit)) === true) {
+      await this.exit();
+    }
+  }
 
-    if (saved === false) {
-      return;
+  /** Leaves after a failed save: closing keeps the edits in the editor, quitting drops them. */
+  public async continueExit(): Promise<void> {
+    const request = this.blockedExit.value;
+
+    this.blockedExit.value = null;
+
+    if (request === ExitRequest.Close) {
+      this.finishClose();
     }
 
+    if (request === ExitRequest.Quit) {
+      await this.exit();
+    }
+  }
+
+  public cancelExit(): void {
+    this.blockedExit.value = null;
+  }
+
+  private async saved(request: ExitRequest): Promise<boolean> {
+    if (this.session.isReadOnly() === true || (await this.session.save()) === true) {
+      return true;
+    }
+
+    // A save already in progress or edits made during it are not failures; only an error asks.
+    if (this.session.getState().value.saveStatus === SaveStatus.Error) {
+      this.blockedExit.value = request;
+    }
+
+    return false;
+  }
+
+  private finishClose(): void {
+    this.preview.enable(false);
+    this.editing.value = false;
+  }
+
+  private async exit(): Promise<void> {
     try {
       await this.desktop.invoke('app_exit');
     } catch (error) {
